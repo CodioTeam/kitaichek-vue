@@ -21,44 +21,44 @@ onMounted(() => {
 	chat.value.scrollTop = chat.value.scrollHeight
 })
 </script>
-	
+
 <template lang="pug">
 .modal-chat__content
 	.modal-chat-header(:class="{ 'active': blockedWindow }")
 		.modal-chat-header__header
 			a.modal-chat-header__avatar
 			.modal-chat-header__info
-				p.modal-chat-header__title.bold {{ sender }}
+				p.modal-chat-header__title.bt-bold {{ sender }}
 				p.modal-chat-header__city {{ city }}
 			button.modal-chat-header__button(@click="blockedWindow = !blockedWindow")
 				BlockUserIcon
 		.modal-chat-header__wrapper
 			.modal-chat-header__content
-				p.modal-chat-header__sure-title.bold Вы хотите заблокировать пользователя
-				p.modal-chat-header__sure-text.small Данный пользователь больше не сможет отправлять вам сообщения. <br> Чтобы возобновить переписку отправьте ему любое сообщение.
+				p.modal-chat-header__sure-title.bt-bold Вы хотите заблокировать пользователя
+				p.modal-chat-header__sure-text.st Данный пользователь больше не сможет отправлять вам сообщения. <br> Чтобы возобновить переписку отправьте ему любое сообщение.
 				.modal-chat-header__row
-					Button(red @click="blockedWindow = false; isBlocked = true").modal-chat-header__confirm Заблокировать
+					Button(danger @click="blockedWindow = false; isBlocked = true").modal-chat-header__confirm Заблокировать
 					Button(white @click="blockedWindow = false").modal-chat-header__cancel Отменить
-	
+
 	.modal-chat__chat(ref="chat")
 		template(v-for="(item, index) in messages")
 			p.modal-chat-item__day(v-if="messages[index][2].split(' ')[0] !== messages[index - 1]?.[2]?.split(' ')?.[0]") {{ item[2].split(' ')[0] }}
 			.modal-chat-item(:class="item[0] ? 'sender' : 'receiver'")
-				p.modal-chat-item__text.regular {{ item[1] }}
+				p.modal-chat-item__text.bt {{ item[1] }}
 				p.modal-chat-item__date {{ item[2].split(' ')[1] }}
 		.modal-chat-item.closed(:class="{ 'active': isBlocked }")
 			p.modal-chat-item__closed-title Заказчик завершил диалог
-			p.modal-chat-item__closed-text.small Только заказчик может написать новое сообщение, чтобы продолжить обсуждение
+			p.modal-chat-item__closed-text.st Только заказчик может написать новое сообщение, чтобы продолжить обсуждение
 
 	.modal-chat-label(v-if="!isBlocked" :class="{ 'active': message.length > 0 }")
 		label.modal-chat-label__label
-			textarea.modal-chat-label__textarea.medium(placeholder="Сообщение" v-model="message")
+			textarea.modal-chat-label__textarea.bt-medium(placeholder="Сообщение" v-model="message")
 		Button(dark @click="$emit('newMessage', message); message = ''").modal-chat-label__button
 			EnterIcon
 			span Enter
 
 </template>
-	
+
 <style scoped lang="scss">
 // MODAL-CHAT
 .modal-chat {
@@ -93,7 +93,7 @@ onMounted(() => {
 		&::-webkit-scrollbar-thumb {
 			background: #333;
 			width: 5px;
-			border-radius: 4px;
+			border-radius: 16px;
 		}
 	}
 	&__header {
@@ -120,7 +120,7 @@ onMounted(() => {
 		&::-webkit-scrollbar-thumb {
 			background: #333;
 			width: 5px;
-			border-radius: 4px;
+			border-radius: 16px;
 		}
 	}
 	&__button {
@@ -224,7 +224,7 @@ onMounted(() => {
 			margin-top: 2px;
 		}
 		.modal-chat-item__text {
-			border-radius: 4px;
+			border-radius: 16px;
 			background: var(--GREY-300, #272723);
 			color: var(--WHITE, #FFF);
 		}
@@ -235,7 +235,7 @@ onMounted(() => {
 			margin-top: 2px;
 		}
 		.modal-chat-item__text {
-			border-radius: 4px;
+			border-radius: 16px;
 			background: var(--LIGHT-GREY, #F8F8F8);
 		}
 	}
@@ -250,7 +250,7 @@ onMounted(() => {
 		align-items: center;
 		gap: 2px;
 		overflow: hidden;
-		border-radius: 4px;
+		border-radius: 16px;
 		background: var(--LIGHT-GREY, #F8F8F8);
 		&.active {
 			padding: 8px 4px;
@@ -277,7 +277,7 @@ onMounted(() => {
 .modal-chat-header {
 	display: flex;
 	flex-direction: column;
-	border-radius: 4px;
+	border-radius: 16px;
 	padding: 12px;
 	transition: .3s ease;
 	background: var(--GREY-300, #272723);
@@ -300,7 +300,7 @@ onMounted(() => {
 		gap: 2px;
 	}
 	&__button {
-		border-radius: 4px;
+		border-radius: 16px;
 		background: var(--GREY-100, #333);
 		padding: 4px;
 		margin-left: auto;
@@ -328,7 +328,7 @@ onMounted(() => {
 		height: 100%;
 		transition: .3s ease;
 		overflow: hidden;
-		border-radius: 4px;
+		border-radius: 16px;
 		background: var(--GREY-100, #333);
 		padding: 0px 12px;
 	}

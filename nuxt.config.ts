@@ -6,6 +6,15 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/kitaichekVue/',
   },
+  dir: {
+    layouts: 'layouts',
+  },
+  plugins: [
+    '~/plugins/pinia.js',
+  ],
+  generate: {
+    fallback: true,
+  },
   vite: {
     css: {
       preprocessorOptions: {

@@ -40,7 +40,7 @@ const recoveryForm = ref({
 	email: "",
 })
 </script>
-	
+
 <template lang="pug">
 section.registration
 	img(src="assets/img/logo.svg", alt="").registration__logo
@@ -49,7 +49,7 @@ section.registration
 			p.registration-header__steps(v-if="registrationSteps.currentStep > 0 && registrationSteps.currentStep <= registrationSteps.maxSteps && (registrationSteps.type === 'customer' || registrationSteps.type === 'freelancer')") Шаг {{ registrationSteps.currentStep }} из {{ registrationSteps.maxSteps }}
 			button.registration-header__back(@click="back()")
 				ChevronIcon
-		
+
 		.registration-content
 			.registration-content__wrapper
 				transition(name="fade-right-small" mode="out-in")
@@ -58,15 +58,15 @@ section.registration
 						.registration-card__wrapper
 							button.registration-card(@click="registrationSteps.maxSteps = 2; registrationSteps.currentStep = 1; registrationSteps.type = 'customer'")
 								ChevronIcon
-								p.registration-card__title.h6 
+								p.registration-card__title.h5
 									span Я Заказчик, ищу исполнителя
 									span Продолжить как <span>Заказчик</span>
 							button.registration-card(@click="registrationSteps.maxSteps = 3; registrationSteps.currentStep = 1; registrationSteps.type = 'freelancer'")
 								ChevronIcon
-								p.registration-card__title.h6 
+								p.registration-card__title.h5
 									span Я Фрилансер, ищу работу
 									span Продолжить как <span>Фрилансер</span>
-					
+
 					form.registration-content__form(v-else-if="registrationSteps.type === 'customer' || registrationSteps.type === 'freelancer'")
 						transition(name="fade-right-small" mode="out-in")
 							h5.registration-content__title.h5(v-if="registrationSteps.type === 'customer' && registrationSteps.currentStep < 3") Регистрация Заказчика
@@ -74,34 +74,34 @@ section.registration
 							h5.registration-content__title.h5(v-else) Регистрация успешно завершена
 						transition(name="fade-right-small" mode="out-in")
 							.registration-content__step(v-if="registrationSteps.currentStep === 1")
-								h6.registration-content__subtitle.h6 С помощью электронной почты
+								h5.registration-content__subtitle.h5 С помощью электронной почты
 								Input(title="email" v-model="registrationForm.email" :value="registrationForm.email" type="email")
 								Input(title="пароль" v-model="registrationForm.password" :value="registrationForm.password" type="password")
 								.registration-valid
 									p.registration-valid__title Создайте пароль, который:
-									p.registration-valid__item.small
+									p.registration-valid__item.st
 										ValidateCheckIcon
 										ValidateCrossIcon
 										ValidateDefaultIcon
 										| содержит не менее 8 симв.
-									p.registration-valid__item.small
+									p.registration-valid__item.st
 										ValidateCheckIcon
 										ValidateCrossIcon
 										ValidateDefaultIcon
 										| содержит как строчные (a–z), так и прописные буквы (A–Z)
-									p.registration-valid__item.small
+									p.registration-valid__item.st
 										ValidateCheckIcon
 										ValidateCrossIcon
 										ValidateDefaultIcon
 										| содержит по крайней мере одну цифру (0–9) или символ.
-									p.registration-valid__item.small
+									p.registration-valid__item.st
 										ValidateCheckIcon
 										ValidateCrossIcon
 										ValidateDefaultIcon
 										| не содержит ваш адрес электронной почты
 								Button(type="button" dark @click="next()").registration-content__button Продолжить
 								Button(type="button" white @click="back()").registration-content__button Назад
-							
+
 							.registration-content__step(v-else-if="registrationSteps.currentStep === 2")
 								Input(title="ФИО" v-model="registrationForm.fio" :value="registrationForm.fio")
 								Input(title="Дата рождения" v-model="registrationForm.dateBirth" :value="registrationForm.dateBirth")
@@ -120,9 +120,9 @@ section.registration
 								Button(type="button" white @click="back()").registration-content__button Назад
 
 							.registration-content__step(v-else-if="(registrationSteps.currentStep === 4 && registrationSteps.type === 'freelancer') || (registrationSteps.currentStep === 3 && registrationSteps.type === 'customer')")
-								p.medium Мы отправили письмо с инструкцией для подтверждения аккаунта на указанный адрес электронной почты.
+								p.bt-medium Мы отправили письмо с инструкцией для подтверждения аккаунта на указанный адрес электронной почты.
 								Button(href="/" dark).registration-content__button Перейти к сайту
-								
+
 					form.registration-content__form(v-else-if="registrationSteps.type === 'login'")
 						h5.registration-content__title.h5 Вход
 						.registration-content__step
@@ -130,8 +130,8 @@ section.registration
 							Input(title="пароль" v-model="loginForm.password" :value="loginForm.password" type="password")
 							Button(href="/" dark).registration-content__button Войти
 							Button(type="button" @click="back()" white).registration-content__button Назад
-							button(type="button" @click="registrationSteps.type = 'recovery'").best-link.medium Напомнить пароль?
-					
+							button(type="button" @click="registrationSteps.type = 'recovery'").best-link.bt-medium Напомнить пароль?
+
 					form.registration-content__form(v-else-if="registrationSteps.type === 'recovery'")
 						h5.registration-content__title.h5 Восстановление пароля
 						transition(name="fade-right-small" mode="out-in")
@@ -140,21 +140,21 @@ section.registration
 								Button(type="button" dark @click="next()").registration-content__button Восстановить пароль
 								Button(type="button" white @click="registrationSteps.type = 'login'").registration-content__button Назад
 							.registration-content__step(v-else)
-								p.medium Мы отправили письмо с инструкцией для подтверждения аккаунта на указанный адрес электронной почты.
+								p.bt-medium Мы отправили письмо с инструкцией для подтверждения аккаунта на указанный адрес электронной почты.
 								Button(type="button" dark @click="registrationSteps.type = 'login'").registration-content__button Войти
-							
+
 		.registration-footer
 			transition(name="fade-right-small" mode="out-in")
-				p.registration-footer__link.medium(v-if="registrationSteps.type !== 'login' && registrationSteps.type !== 'recovery'")
+				p.registration-footer__link.bt-medium(v-if="registrationSteps.type !== 'login' && registrationSteps.type !== 'recovery'")
 					| Уже есть аккаунт?
-					button(@click="registrationSteps.type = 'login'; next()").best-link.medium Войти
-				p.registration-footer__link.medium(v-else)
+					button(@click="registrationSteps.type = 'login'; next()").best-link.bt-medium Войти
+				p.registration-footer__link.bt-medium(v-else)
 					| Еще не присоеднились?
-					button(@click="registrationSteps.type = null; registrationSteps.currentStep = 0").best-link.medium Регистрация
+					button(@click="registrationSteps.type = null; registrationSteps.currentStep = 0").best-link.bt-medium Регистрация
 
 
 </template>
-	
+
 <style scoped lang="scss">
 .registration {
 	background: url("@/assets/img/overlay.jpg") no-repeat;
@@ -171,7 +171,7 @@ section.registration
 		background: white;
 		margin-left: auto;
 		padding: 24px 34px 24px 24px;
-		border-radius: 4px;
+		border-radius: 16px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -523,7 +523,7 @@ section.registration
 	display: flex;
 	align-items: flex-end;
 	padding: 24px;
-	border-radius: 4px;
+	border-radius: 16px;
 	position: relative;
 	height: 180px;
 	background: var(--LIGHT-GREY, #F8F8F8);

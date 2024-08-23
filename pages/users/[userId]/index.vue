@@ -5,6 +5,8 @@ import BookmarkIcon from "~/components/icons/BookmarkIcon.vue"
 import BookmarkFillIcon from "~/components/icons/BookmarkFillIcon.vue"
 import UserReview from "~/components/UserReview.vue"
 
+const {userId} = useRoute().params
+
 const SORT = ref('Новые')
 const bookmark = ref(false)
 const typeVisitor = ref('employer')
@@ -54,84 +56,89 @@ const REVIEWS_PLACEHOLDER = [
 	},
 ]
 
+definePageMeta({
+  middleware: 'load-user-details',
+});
+
+import { useUserStore } from '~/stores/user';
+const userStore = useUserStore();
+const user = userStore.userDetails;
+
 </script>
-	
+
 <template lang="pug">
-div(style="position: fixed; top: 0px; left: 0px; display: flex; z-index: 1002")
 button(@click="typeVisitor = 'executor'") executor
 button(@click="typeVisitor = 'employer'") employer
 button(@click="typeVisitor = 'noneAuth'") noneAuth
-Header 
-
 Block.cabinet
 	img.cabinet-cover(src="assets/img/user-cover.jpg", alt="")
 	.cabinet-info
 		.user-info
 			img.user-info__avatar(src="assets/img/avatar-01.jpg", alt="Avatar")
 			.user-info__col
-				p.user-info__status.medium-small(v-if="typeVisitor !== 'executor'") Онлайн
-				p.user-info__title.h6 Мария Иванова
-				p.user-info__id.medium @maryivanova
+				p.user-info__status.bt-medium(v-if="typeVisitor !== 'executor'") Онлайн
+				p.user-info__title.h5 {{ user.firstName }}
+				p.user-info__id.bt-medium {{ user.id }}
 			.user-info__frame
-				p.user-info__time.regular На сайте 1 год и 10 месяцев
-				.user-info-reviews 
-					p.user-info-reviews__rate.bold
+				p.user-info__time.bt {{ user.createdAt }}
+				.user-info-reviews
+					p.user-info-reviews__rate.bt-bold
 						StarFillIcon(size="16")
 						| 4.9
 					hr
-					p.user-info-reviews__count.regular 12 отзывов
+					p.user-info-reviews__count.bt 12 отзывов
 			.user-info__actions(v-if="typeVisitor === 'employer'")
-				Button(accent).user-info__button Предложить заказ
-				Button(outline).user-info__chat
-					ChatFillIcon 
+				Button(yellow).user-info__button Предложить заказ
+				Button(outline white).user-info__chat
+					ChatFillIcon
 					| Чат
 				Button(small @click="bookmark = !bookmark").user-info__bookmark
 					BookmarkIcon(v-if="!bookmark")
 					BookmarkFillIcon(v-if="bookmark")
 			.user-info__actions(v-else-if="typeVisitor === 'executor'")
-				Button(accent).user-info__button Редактировать
+				Button(yellow).user-info__button Редактировать
 			.user-info__actions.user-info__actions--noAuth(v-else-if="typeVisitor === 'noneAuth'")
-				p.user-info__actions-title.h6 Готовы начать сотрудничество?
-				p.user-info__actions-text.regular Чтобы предложить заказ или начать диалог, сперва необходимо авторизоваться
-				Button(accent).user-info__button Присоединиться / Войти
+				p.user-info__actions-title.h5 Готовы начать сотрудничество?
+				p.user-info__actions-text.bt Чтобы предложить заказ или начать диалог, сперва необходимо авторизоваться
+				Button(yellow).user-info__button Присоединиться / Войти
 			.user-info-description
-				p.user-info-description__title.small-uppercase-medium Обо мне
-				p.user-info-description__main.bold 
+				p.user-info-description__title.subtitle Обо мне
+				p.user-info-description__main.bt-bold
 					| Возраст: 34 года
 					<br>
 					| Нахожусь: Шэньчжень
 					<br>
 					| Опыт работы: 12 лет
-				p.user-info-description__text.regular
+				p.user-info-description__text.bt
 					| Я Мария, профессиональный графический дизайнер со стажем 5 лет.
 					<br/><br/>
 					| Я работал над множеством проектов: от логотипов до подробных иллюстраций и анимации. Я обладаю глубоким пониманием принципов дизайна и могу помочь вам создать уникальный и эффективный бренд.
 					<br/><br/>
 					| Дизайн — это то, что мне действительно нравится, и для меня это не просто работа. Я работал со многими известными агентствами, а сейчас работаю штатным дизайнером-фрилансером на Fiverr. Логотипы, инфографика, листовки, брошюры, упаковка, логотипы для спорта и игр — вот некоторые из моих специализаций. Спасибо, Найма.
-				p.user-info-description__title.small-uppercase-medium Специализации
-				p.user-info-description__row 
+				p.user-info-description__title.subtitle Специализации
+				p.user-info-description__row
 					Tag(isAccent) Посредник
 					Tag Гид
 					Tag Инспектор
 
 		.user-reviews
-			p.user-reviews__complaint.medium-small(v-if="typeVisitor !== 'executor'") Пожаловаться
-			.user-reviews-filter 
+			p.user-reviews__complaint.bt-medium(v-if="typeVisitor !== 'executor'") Пожаловаться
+			.user-reviews-filter
 				p.user-reviews-filter__count.h1 12
-				p.user-reviews-filter__title.medium Отзывов
+				p.user-reviews-filter__title.bt-medium Отзывов
 				SingleDropdown.user-reviews-filter__sort(:list="['Новые','Сначала дешевле','Сначала дороже']" :value="SORT" @update:modelValue="SORT = $event")
 			.user-reviews-list
 				UserReview(v-for="info in REVIEWS_PLACEHOLDER" :info="info" :typeVisitor="typeVisitor")
-Footer
+
 </template>
-	
+
 <style scoped lang="scss">
 .cabinet {
 	padding: 24px 0px 144px;
 }
 .cabinet-cover {
 	width: 100%;
-	border-radius: 4px;
+	border-radius: 16px;
 	max-height: 200px;
 	width: 100%;
 	height: 100%;
@@ -179,7 +186,7 @@ Footer
 		gap: 8px;
 		align-items: center;
 		justify-content: center;
-		border-radius: 14px;
+		border-radius: 16px;
 		background: var(--GREY-300);
 		color: var(--GREEN) !important;
 		margin-bottom: 12px;
@@ -195,8 +202,8 @@ Footer
 		opacity: 0.5;
 	}
 	&__frame {
-		border-radius: 4px;
-		border: 1px solid var(--BORDER-GREY, #252525);
+		border-radius: 16px;
+		// border: 1px solid var(--BORDER-GREY, #252525);
 		background: var(--GREY-400, #1C1C19);
 		display: flex;
 		flex-direction: column;
@@ -225,18 +232,13 @@ Footer
 	&__chat {
 		padding-top: 7px;
 		padding-bottom: 7px;
-		@include hover {
-			:deep(path) {
-				fill: var(--DARK);
-			}
-		}
 	}
 	&__bookmark {
 		width: 40px;
 		height: 40px;
 		padding: 0;
-		border-radius: 4px;
-		border: 1px solid var(--GREY-100, #333);
+		border-radius: 16px;
+		// border: 1px solid var(--GREY-100, #333);
 		background: var(--GREY-400, #1C1C19);
 		:deep(svg) {
 			color: var(--ACCENT) !important;

@@ -4,6 +4,7 @@ import TriangleIcon from "~/components/icons/TriangleIcon.vue"
 const props = defineProps({
 	value: String,
 	list: Array,
+	secondary: Boolean,
 })
 
 defineEmits(['update:modelValue'])
@@ -30,33 +31,33 @@ const getCoordinates = () => {
 	coordinates.value.width = dropdown.value.getBoundingClientRect().width
 }
 </script>
-	
+
 <template lang="pug">
-.dropdown(ref="dropdown" :class="{ open }")
-	p.dropdown__value.small-uppercase-medium(@click="open = !open; getCoordinates()")
+.dropdown(ref="dropdown" :class="{ open, 'dropdown--secondary': secondary}")
+	p.dropdown__value.subtitle(@click="open = !open; getCoordinates()")
 		| {{ value }}
 		TriangleIcon(size="16")
 
 	Teleport(to="body")
 		.dropdown-options__wrapper(@click.self="open = false" ref="dropdownOptions" :class="{ open }" :style="{ top: `${coordinates.top}px`, left: `${coordinates.left}px`, minWidth: `${coordinates.width}px` }")
 			.dropdown-options
-				button.dropdown__button.medium-small.dropdown__button--selected( type="button" @click="open = !open") {{ value }}
+				button.dropdown__button.subtitle.dropdown__button--selected( type="button" @click="open = !open") {{ value }}
 				.dropdown__wrapper
 					.dropdown__content
-						button.dropdown__button.medium-small(
+						button.dropdown__button.bt-medium(
 							v-for="item,i in list.filter(i => i !== value)"
-							@click="$emit('update:modelValue', item); open = false; getCoordinates()" 
+							@click="$emit('update:modelValue', item); open = false; getCoordinates()"
 						) {{ item }}
 
 </template>
-	
+
 <style scoped lang="scss">
 .dropdown-options {
 	display: flex;
 	padding: 2px;
 	background: var(--LIGHT-GREY);
 	flex-direction: column;
-	border-radius: 4px;
+	border-radius: 16px;
 	&__wrapper {
 		pointer-events: none;
 		opacity: 0;
@@ -96,7 +97,7 @@ const getCoordinates = () => {
 }
 .dropdown {
 	padding: 2px;
-	border-radius: 4px;
+	border-radius: 16px;
 	position: relative;
 	min-width: 0;
 	transition: .3s ease;
@@ -131,10 +132,18 @@ const getCoordinates = () => {
 		&--selected {
 			opacity: 1;
 			border-bottom: 1px solid #E9E9E9;
+			text-transform: uppercase;
+
 		}
 		@include hover {
 			opacity: 1;
 		}
+	}
+	&--secondary {
+		width: 100%;
+		max-width: 100%;
+		background: var(--LIGHT-GREY);
+
 	}
 }
 </style>

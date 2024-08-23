@@ -10,7 +10,7 @@ onMounted(() => {
 	// HEADER
 	const headerBottoms = document.querySelectorAll('.header-bottom')
 	const headerNav = document.querySelectorAll('[data-header]')
-	
+
 	headerBottoms.forEach((item) => {
 		const bottomHeader = item.querySelector('.header-bottom__header--mobile')
 		bottomHeader.addEventListener('click', () => {
@@ -18,15 +18,15 @@ onMounted(() => {
 				if(!i.classList.contains('header-bottom--active')) {
 					i.classList.remove('header-bottom--active')
 				}
-	
-				if(i.classList.contains('header-bottom--active') && i !== item) { 
+
+				if(i.classList.contains('header-bottom--active') && i !== item) {
 					i.classList.remove('header-bottom--active')
 				}
 			})
 			item.classList.toggle('header-bottom--active')
 		})
 	})
-	
+
 	headerNav.forEach((nav) => {
 		nav.addEventListener('mouseenter', () => {
 			const navData = nav.dataset.header
@@ -43,10 +43,10 @@ onMounted(() => {
 				} else {
 					item.classList.remove('header-bottom--active')
 				}
-			}) 
+			})
 		})
 	})
-	
+
 	window.addEventListener('click', (e) => {
 		if (!e.target.closest('.header-bottom') && !e.target.closest('[data-header]') && !e.target.closest('.header-top__burger')) {
 			headerBottoms.forEach((item) => {
@@ -67,12 +67,12 @@ onMounted(() => {
 			})
 		}
 	})
-	
+
 	// HEADER BURGER
-	
+
 	const headerBurger = document.querySelector('.header-top__burger')
 	const headerBottomWrapper = document.querySelector('.header-bottom__wrapper')
-	
+
 	headerBurger?.addEventListener('click', () => {
 		document.body.classList.toggle('lock')
 		headerBurger.classList.toggle('header-top__burger--active')
@@ -82,7 +82,7 @@ onMounted(() => {
 })
 
 const modalOpen = ref(false)
-const modalActive = ref(null) 
+const modalActive = ref(null)
 
 const formLogin = ref({
 	email: '',
@@ -170,7 +170,7 @@ function formatDate(date) {
 }
 
 </script>
-	
+
 <template lang="pug">
 header.header
 	.header-top
@@ -187,25 +187,25 @@ header.header
 					img(src="assets/img/logo-mini.svg", alt="")
 					img(src="assets/img/logo.svg", alt="")
 				nav.header-nav
-					button.header-nav__link.medium(data-header="direction")
+					button.header-nav__link.bt-medium(data-header="direction")
 						| Направления
 						ChevronIcon
-					button.header-nav__link.medium(data-header="work")
+					button.header-nav__link.bt-medium(data-header="work")
 						| Работа
 						ChevronIcon
-					button.header-nav__link.medium(data-header="news")
+					button.header-nav__link.bt-medium(data-header="news")
 						| Статьи
 						ChevronIcon
-					a(href="#").header-nav__link.medium
+					a(href="#").header-nav__link.bt-medium
 						| Q&A
 			.header-auth(v-if="!isAuth")
-				p.header-auth__users.medium
+				p.header-auth__users.bt-medium
 					GroupsIcon
 					| 1 312 238
 				Button(outline dark @click="modalOpen = true; modalActive = 'login'") Присоединиться
 				Button(outline dark @click="modalOpen = true; modalActive = 'login'") Войти
 			.header-auth(v-else)
-				p.header-auth__orders.medium Мои заказы
+				p.header-auth__orders.bt-medium Мои заказы
 				.header-auth__controllers
 					button.header-auth__button(@click="modalOpen = true; modalActive = 'chat'" :class="{ 'active': PLACEHOLDER_CHAT.filter(n => !n.isRead).length > 0 }")
 						ChatIcon
@@ -216,112 +216,112 @@ header.header
 		.header-bottom.header-bottom--direction
 			.container
 				.header-bottom__header.header-bottom__header--pc
-					p.header-bottom__title.medium Поиск специалиста по направлениям
-					a(href="#").header-bottom__link.small Перейти в каталог
+					p.header-bottom__title.bt-medium Поиск специалиста по направлениям
+					a(href="#").header-bottom__link.st Перейти в каталог
 				.header-bottom__header.header-bottom__header--mobile
-					p.header-bottom__title.medium Направления
+					p.header-bottom__title.bt-medium Направления
 					ChevronIcon
 				.header-bottom__links-wrapper
 					.header-bottom__links
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Байеры
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Байеры
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Гиды
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Гиды
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Переводчики
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Переводчики
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Экспедиторы
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Экспедиторы
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Посредники
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Посредники
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Инспекторы
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Инспекторы
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 				.header-bottom__line
 		.header-bottom.header-bottom--work
 			.container
 				.header-bottom__header.header-bottom__header--pc
-					p.header-bottom__title.medium Поиск работы по направлениям
-					a(href="#").header-bottom__link.small Перейти в каталог
+					p.header-bottom__title.bt-medium Поиск работы по направлениям
+					a(href="#").header-bottom__link.st Перейти в каталог
 				.header-bottom__header.header-bottom__header--mobile
-					p.header-bottom__title.medium Работа
+					p.header-bottom__title.bt-medium Работа
 					ChevronIcon
 				.header-bottom__links-wrapper
 					.header-bottom__links
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Для Байеров
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Для Байеров
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Для Гидов
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Для Гидов
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Для Переводчиков
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Для Переводчиков
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Для Экспедиторов
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Для Экспедиторов
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Для Посредников
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Для Посредников
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Для Инспекторов
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Для Инспекторов
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 				.header-bottom__line
 		.header-bottom.header-bottom--news
 			.container
 				.header-bottom__header.header-bottom__header--pc
-					p.header-bottom__title.medium Поиск работы по направлениям
-					a(href="#").header-bottom__link.small Перейти в каталог
+					p.header-bottom__title.bt-medium Поиск работы по направлениям
+					a(href="#").header-bottom__link.st Перейти в каталог
 				.header-bottom__header.header-bottom__header--mobile
-					p.header-bottom__title.medium Статьи
+					p.header-bottom__title.bt-medium Статьи
 					ChevronIcon
 				.header-bottom__links-wrapper
 					.header-bottom__links
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Рубрика 1
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Рубрика 1
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Рубрика 2
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Рубрика 2
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Рубрика 3
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Рубрика 3
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Рубрика 4
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Рубрика 4
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Рубрика 5
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Рубрика 5
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
 							ChevronIcon
-							p.header-bottom-item__title.medium Рубрика 6
-							p.header-bottom-item__text.small Удаленные помощники на китайском рынке товаров
+							p.header-bottom-item__title.bt-medium Рубрика 6
+							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 				.header-bottom__line
 		.header-bottom
 			.container
 				a(href="#").header-bottom__header.header-bottom__header--mobile
-					p.header-bottom__title.medium Q&A
+					p.header-bottom__title.bt-medium Q&A
 					LinkIcon
 
 ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;")
@@ -334,11 +334,11 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 						Input(type="email" title="Email" v-model="formLogin.email" :value="formLogin.email")
 						Input(type="password" title="Пароль" v-model="formLogin.password" :value="formLogin.password")
 						Button(type="button" dark @click="modalActive = null; modalOpen = false; isAuth = true").modal-login-content__button Войти
-						button(type="button" @click="modalActive = 'recovery'").best-link.medium Напомнить пароль?
+						button(type="button" @click="modalActive = 'recovery'").best-link.bt-medium Напомнить пароль?
 			template(#footer)
-				a.registration-footer__link.medium 
+				a.registration-footer__link.bt-medium
 					| Еще не присоеднились?
-					router-link(to="/registration").best-link.medium Регистрация
+					router-link(to="/registration").best-link.bt-medium Регистрация
 		Modal(v-else-if="modalActive === 'recovery'" noBorder @close="modalActive = null; modalOpen = false" isForm)
 			template(#content)
 				form.modal-login-content__form
@@ -348,20 +348,20 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 						Button(type="button" dark @click="modalActive = 'recoveryDone'").modal-login-content__button Восстановить пароль
 						Button(type="button" white @click="modalActive = 'login'").modal-login-content__button Назад
 			template(#footer)
-				a.registration-footer__link.medium 
+				a.registration-footer__link.bt-medium
 					| Еще не присоеднились?
-					router-link(to="/registration").best-link.medium Регистрация
+					router-link(to="/registration").best-link.bt-medium Регистрация
 		Modal(v-else-if="modalActive === 'recoveryDone'" noBorder @close="modalActive = null; modalOpen = false" isForm)
 			template(#content)
 				form.modal-login-content__form
 					h5.modal-login-content__title.h5 Восстановление пароля
 					.modal-login-content__step
-						p.modal-login-content__text.medium Мы отправили письмо с инструкцией на указанный адрес электронной почты.
+						p.modal-login-content__text.bt-medium Мы отправили письмо с инструкцией на указанный адрес электронной почты.
 						Button(type="button" dark @click="modalActive = 'login'").modal-login-content__button Войти
 			template(#footer)
-				a.registration-footer__link.medium 
+				a.registration-footer__link.bt-medium
 					| Еще не присоеднились?
-					router-link(to="/registration").best-link.medium Регистрация
+					router-link(to="/registration").best-link.bt-medium Регистрация
 		Modal(v-else-if="modalActive === 'notification'" @close="modalActive = null; modalOpen = false").modal-notification
 			template(#header)
 				p.modal__title.modal-notification__title(:data-new="PLACEHOLDER_NOTIFICATION.filter(n => !n.isRead).length")
@@ -375,9 +375,9 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 		Modal(v-else-if="modalActive === 'chat-message'" @close="modalActive = null; modalOpen = false", @back="modalActive = 'chat'")
 			template(#content)
 				Chat(:info="activeChat" @newMessage="activeChat.messages.push([1, $event, formatDate(new Date())])")
-				
+
 </template>
-	
+
 <style scoped lang="scss">
 // HEADER
 .header {
@@ -502,7 +502,7 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 	&__link {
 		display: flex;
 		padding: 4px 8px;
-		border-radius: 4px;
+		border-radius: 16px;
 		align-items: center;
 		transition: .3s ease;
 		gap: 4px;
@@ -540,7 +540,7 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 	&__button {
 		position: relative;
 		padding: 4px 8px;
-		border-radius: 4px;
+		border-radius: 16px;
 		transition: .3s ease;
 		&.active::before {
 			content: '';
@@ -583,7 +583,7 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 		.button {
 			padding: 6px 16px;
 			min-height: 32px;
-			border-radius: 4px;
+			border-radius: 16px;
 		}
 		&__users {
 			display: none;
@@ -625,7 +625,7 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 		margin: 24px auto 0;
 		width: 32px;
 		height: 2px;
-		border-radius: 4px;
+		border-radius: 16px;
 		background: #E9E9E9;
 	}
 	&__links {
@@ -708,7 +708,7 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 }
 .header-bottom-item {
 	padding: 16px;
-	border-radius: 4px;
+	border-radius: 16px;
 	transition: .3s ease;
 	display: flex;
 	flex-direction: column;
@@ -724,7 +724,7 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 		background: #EFEFEF;
 	}
 	@include r(768px) {
-		border-radius: 4px;
+		border-radius: 16px;
 		background: var(--GREY-400, #1C1C19);
 		&__title, &__text {
 			color: #fff;
@@ -806,7 +806,7 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 			display: block;
 			color: #272723;
 			padding: 2px 4px;
-			border-radius: 4px;
+			border-radius: 16px;
 			background: #E9E9E9;
 		}
 	}
@@ -829,7 +829,7 @@ ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;"
 			display: block;
 			color: #272723;
 			padding: 2px 4px;
-			border-radius: 4px;
+			border-radius: 16px;
 			background: #E9E9E9;
 		}
 	}

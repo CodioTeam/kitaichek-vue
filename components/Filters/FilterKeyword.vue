@@ -17,16 +17,16 @@ const selectHandle = () => {
 	}
 }
 </script>
-	
+
 <template lang="pug">
 .filter
-	input.filter__input.regular(placeholder="Введите через запятую" v-model="inputValue" @input="selectHandle" :class="{ 'filter__input--filled': current.length > 0 }")
+	input.filter__input.bt(placeholder="Введите через запятую" v-model="inputValue" @input="selectHandle" :class="{ 'filter__input--filled': current.length > 0 }")
 	.filter__row(v-if="current.length")
-		Tag.filter__tag(v-for="item in current" :key="item" isAccent @click="emits('change', [...current.filter(i => i !== item)])") 
+		Tag.filter__tag(v-for="item in current" :key="item" isAccent @click="emits('change', [...current.filter(i => i !== item)])")
 			| {{ item }}
 			DeleteDropdownIcon(size="14").filter__tag-icon
 </template>
-	
+
 <style scoped lang="scss">
 .filter {
 	display: flex;

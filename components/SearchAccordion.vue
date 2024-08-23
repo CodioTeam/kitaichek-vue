@@ -7,7 +7,7 @@ defineProps({
 
 const open = ref(false)
 </script>
-	
+
 <template lang="pug">
 .accordion(:class="{ 'open': open, 'accordion--alwaysOpen': alwaysOpen}")
 	.accordion__header(@click="open = !open")
@@ -18,9 +18,11 @@ const open = ref(false)
 		.accordion__content
 			slot
 </template>
-	
+
 <style scoped lang="scss">
 .accordion {
+	width: 100%;
+	max-width: 100%;
 	&__header {
 		cursor: pointer;
 		height: 24px;

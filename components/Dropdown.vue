@@ -1,28 +1,28 @@
 <script setup>
-import ChevronIcon from "~/components/icons/ChevronIcon.vue"
-import DeleteDropdownIcon from "~/components/icons/DeleteDropdownIcon.vue"
 
 const props = defineProps({
 	value: String,
 	list: Array,
 	title: String
 })
+
+let active = ref(false)
 </script>
-	
+
 <template lang="pug">
-.dropdown
+.dropdown(@click="active = !active" :class="{ active }")
 	p.dropdown__title {{ title }}
 	.dropdown__header
-		p.dropdown__placeholder.medium Выберите из списка
-		ChevronIcon
-	.dropdown__wrapper 
+		p.dropdown__placeholder.bt-medium Выберите из списка
+		IconsChevronIcon
+	.dropdown__wrapper
 		.dropdown__content
-			button(type="button" @click="$emit('update:modelValue', item)" v-for="item in list").dropdown__item.medium
+			button(type="button" @click="$emit('update:modelValue', item);" v-for="item in list").dropdown__item.bt-medium
 				span {{ item }}
-				DeleteDropdownIcon
+				IconsDeleteDropdownIcon
 	.dropdown__value
 </template>
-	
+
 <style scoped lang="scss">
 	// DROPDOWN
 .dropdown {
@@ -96,7 +96,7 @@ const props = defineProps({
 		grid-template-rows: 0fr;
 		padding: 0 4px;
 		transition: .3s ease;
-		border-radius: 4px;
+		border-radius: 16px;
 		width: 100%;
 		background: var(--GREY-400, #1C1C19);
 		pointer-events: none;
@@ -118,18 +118,18 @@ const props = defineProps({
 		&::-webkit-scrollbar-thumb {
 			background: #8d8d8d;
 			width: 5px;
-			border-radius: 4px;
+			border-radius: 16px;
 		}
 		&::after {
 			content: '';
 			background: #484846;
 			width: 1px;
 			position: absolute;
-			height: calc(100% - 8px);
-			top: 4px;
+			height: calc(100% - 32px);
+			top: 16px;
 			transition: .3s ease;
 			z-index: -1;
-			right: 6px;
+			right: 10px;
 			transform: scaleY(0);
 			transform-origin: top;
 		}
@@ -141,7 +141,7 @@ const props = defineProps({
 		padding: 12px;
 		color: #fff;
 		transition: .3s ease;
-		border-radius: 4px;
+		border-radius: 16px;
 		&:not(.selected) {
 			@include hover {
 				background: var(--GREY-300, #272723);
@@ -163,7 +163,7 @@ const props = defineProps({
 	&.active {
 		.dropdown__wrapper {
 			grid-template-rows: 1fr;
-			padding: 4px;
+			padding: 8px 8px 8px 4px;
 			pointer-events: all;
 		}
 		.dropdown__content {

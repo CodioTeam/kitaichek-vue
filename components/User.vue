@@ -12,7 +12,7 @@ const { info } =  defineProps({
 
 const { name, city, rating, feedback, tags } = info
 </script>
-	
+
 <template lang="pug">
 .user-card.card
 	.user-card__header
@@ -23,10 +23,10 @@ const { name, city, rating, feedback, tags } = info
 				p.user-card__name {{ name }}
 				p.user-card__city {{ city }}
 		.user-card__row
-			a(href="#").user-card__small-button 
+			a(href="#").user-card__small-button
 				StarIcon
 				| {{ rating }}
-			a(href="#").user-card__small-button 
+			a(href="#").user-card__small-button
 				FeedbackIcon
 				| {{ feedback }}
 			button.user-card__bookmark
@@ -35,14 +35,14 @@ const { name, city, rating, feedback, tags } = info
 			Button(dark).user-card__button
 				ForumIcon
 			Button(dark).user-card__button Предложить заказ
-	p.user-card__description.medium
+	p.user-card__description.bt-medium
 		| В сфере дизайна более 9 лет. Свое дело люблю и работаю 24/7.
 		| <br> Специализируюсь на графическом дизайне и UI/UX.
 		| <br> • Полиграфия
 		| <br> • Иллюстрации
-		| <br> • Сайты/приложения 
+		| <br> • Сайты/приложения
 		| <br>
-		| <br> Программы: 
+		| <br> Программы:
 		| <br> •Adobe Illustrator
 		| <br> •Adobe Photoshop
 		| <br> •Adobe InDesign
@@ -52,7 +52,7 @@ const { name, city, rating, feedback, tags } = info
 			Tag(v-if="index <= 3" :isAccent="index===0")
 				| {{ index === 3 ? `+${tags.length - 3}` : tag }}
 </template>
-	
+
 <style scoped lang="scss">
 .user-card {
 	display: flex;
@@ -62,7 +62,7 @@ const { name, city, rating, feedback, tags } = info
 		display: flex;
 		flex-direction: column;
 		padding: 12px;
-		border-radius: 4px;
+		border-radius: 16px;
 		background: var(--GREY-300, #272723);
 		gap: 16px;
 		height: 118px;
@@ -109,7 +109,7 @@ const { name, city, rating, feedback, tags } = info
 		padding: 2px 8px 2px 4px;
 		align-items: center;
 		gap: 8px;
-		border-radius: 4px;
+		border-radius: 16px;
 		background: var(--GREY-400, #1C1C19);
 		transition: .3s ease;
 		color: var(--LIGHT-GREY, #F8F8F8);
@@ -170,7 +170,7 @@ const { name, city, rating, feedback, tags } = info
 		flex-wrap: wrap;
 	}
 	&__tag {
-		border-radius: 4px;
+		border-radius: 16px;
 		border: 1px solid rgba(248, 248, 248, 0.10);
 		padding: 4px 12px 4px 8px;
 		color: #f8f8f861 !important;
@@ -188,7 +188,7 @@ const { name, city, rating, feedback, tags } = info
 	}
 	&__col {
 		display: flex;
-		flex-direction: column;	
+		flex-direction: column;
 		gap: 8px;
 	}
 	@include hover {

@@ -1,0 +1,40 @@
+[
+  {
+    "createdAt": "2023-08-05T09:00:00Z",
+    "published": true,
+    "status": "atWork",
+    "employer": "user1",
+    "executors": ["user2"],
+    "title": "Fix the kitchen sink",
+    "description": "The sink in the kitchen is leaking and needs to be fixed.",
+    "specialization": ["Plumbing"],
+    "city": "New York",
+    "budget": {
+      "min": 100,
+      "max": 150
+    },
+    "deadlines": {
+      "min": "2023-08-10T00:00:00Z",
+      "max": "2023-08-15T00:00:00Z"
+    }
+  },
+  {
+    "createdAt": "2023-08-02T08:00:00Z",
+    "published": false,
+    "status": "personality",
+    "employer": "user2",
+    "executors": ["user1"],
+    "title": "Trim the hedges",
+    "description": "Need to trim the hedges in the front yard.",
+    "specialization": ["Gardening"],
+    "city": "Los Angeles",
+    "budget": {
+      "min": 50,
+      "max": 100
+    },
+    "deadlines": {
+      "min": "2023-08-07T00:00:00Z",
+      "max": "2023-08-12T00:00:00Z"
+    }
+  }
+]

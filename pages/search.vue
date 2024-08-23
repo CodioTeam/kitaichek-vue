@@ -248,10 +248,8 @@ const FILTERS_REQUESTS = ref(false)
 const FILTERS_EXECUTORS = ref(false)
 
 </script>
-	
-<template lang="pug">
-Header
 
+<template lang="pug">
 Block.search
 	.search-header
 		input.search-input(placeholder="Я ищу...")
@@ -263,9 +261,9 @@ Block.search
 			.search-content-requests
 				.search-content__header
 					.search-content__header-row
-						p.search-content-results.regular Результатов: <span class="medium">{{ PLACEHOLDER_REQUESTS.length }}</span>
+						p.search-content-results.bt Результатов: <span class="medium">{{ PLACEHOLDER_REQUESTS.length }}</span>
 						SingleDropdown(:list="['Новые','Сначала дешевле','Сначала дороже']" :value="SORT_REQUESTS" @update:modelValue="SORT_REQUESTS = $event")
-					button.search-content__filters.small-uppercase-medium(@click="FILTERS_REQUESTS = !FILTERS_REQUESTS")
+					button.search-content__filters.subtitle(@click="FILTERS_REQUESTS = !FILTERS_REQUESTS")
 						| Фильтры
 						FilterIcon(size="17")
 				.search-content-requests__column
@@ -273,11 +271,11 @@ Block.search
 			.search-aside(:class="{ 'active': FILTERS_REQUESTS }")
 				.search-aside__wrapper
 					.search-aside__header
-						p.search-aside__title.small-uppercase-medium(@click="FILTERS_REQUESTS = !FILTERS_REQUESTS")
+						p.search-aside__title.subtitle(@click="FILTERS_REQUESTS = !FILTERS_REQUESTS")
 							ChevronIcon
 							| Фильтры
-						button.search-aside__button.small(@click="CURRENT_DIRECTION = []; CURRENT_CITY = []; CURRENT_KEYWORD = []; MIN_BUDGET_VALUE = 0; MAX_BUDGET_VALUE = 0") Сбросить
-					.search-aside__content 
+						button.search-aside__button.st(@click="CURRENT_DIRECTION = []; CURRENT_CITY = []; CURRENT_KEYWORD = []; MIN_BUDGET_VALUE = 0; MAX_BUDGET_VALUE = 0") Сбросить
+					.search-aside__content
 						SearchAccordion
 							template(#header) специализация <span v-if="CURRENT_DIRECTION.length > 0">{{ CURRENT_DIRECTION.length }}</span>
 							FilterDirection(:list="DIRECTION_LIST" :current="CURRENT_DIRECTION" @change="CURRENT_DIRECTION = $event")
@@ -288,17 +286,17 @@ Block.search
 							template(#header) Ключевые слова <span v-if="CURRENT_KEYWORD.length > 0">{{ CURRENT_KEYWORD.length }}</span>
 							FilterKeyword(:current="CURRENT_KEYWORD" @change="CURRENT_KEYWORD = $event")
 						SearchAccordion
-							template(#header) 
-								| Бюджет 
+							template(#header)
+								| Бюджет
 								<span v-if="MIN_BUDGET_VALUE && MAX_BUDGET_VALUE">{{ MIN_BUDGET_VALUE }}{{POSTFIX_BUDGET}} - {{ MAX_BUDGET_VALUE }}{{POSTFIX_BUDGET}}</span>
 								<span v-else-if="MIN_BUDGET_VALUE">{{ MIN_BUDGET_VALUE }}{{POSTFIX_BUDGET}}+</span>
 								<span v-else-if="MAX_BUDGET_VALUE">0{{POSTFIX_BUDGET}} - {{ MAX_BUDGET_VALUE }}{{POSTFIX_BUDGET}}</span>
 							FilterRange(
-								@update:min="MIN_BUDGET_VALUE = $event" 
-								@update:max="MAX_BUDGET_VALUE = $event" 
+								@update:min="MIN_BUDGET_VALUE = $event"
+								@update:max="MAX_BUDGET_VALUE = $event"
 								@update:postfix="POSTFIX_BUDGET = $event"
-								:min="MIN_BUDGET_VALUE" 
-								:max="MAX_BUDGET_VALUE" 
+								:min="MIN_BUDGET_VALUE"
+								:max="MAX_BUDGET_VALUE"
 								:postfix="POSTFIX_BUDGET"
 							)
 						SearchAccordion(alwaysOpen)
@@ -309,9 +307,9 @@ Block.search
 			.search-content-executors
 				.search-content__header
 					.search-content__header-row
-						p.search-content-results.regular Результатов: <span class="medium">{{ PLACEHOLDER_EXECUTORS.length }}</span>
+						p.search-content-results.bt Результатов: <span class="medium">{{ PLACEHOLDER_EXECUTORS.length }}</span>
 						SingleDropdown(:list="['Новые','Сначала дешевле','Сначала дороже']" :value="SORT_EXECUTORS" @update:modelValue="SORT_EXECUTORS = $event")
-					button.search-content__filters.small-uppercase-medium(@click="FILTERS_EXECUTORS = !FILTERS_EXECUTORS")
+					button.search-content__filters.subtitle(@click="FILTERS_EXECUTORS = !FILTERS_EXECUTORS")
 						| Фильтры
 						FilterIcon(size="17")
 				.search-content-executors__row
@@ -319,11 +317,11 @@ Block.search
 			.search-aside(:class="{ 'active': FILTERS_EXECUTORS }")
 				.search-aside__wrapper
 					.search-aside__header
-						p.search-aside__title.small-uppercase-medium(@click="FILTERS_EXECUTORS = !FILTERS_EXECUTORS")
+						p.search-aside__title.subtitle(@click="FILTERS_EXECUTORS = !FILTERS_EXECUTORS")
 							ChevronIcon
 							| Фильтры
-						button.search-aside__button.small Сбросить
-					.search-aside__content 
+						button.search-aside__button.st Сбросить
+					.search-aside__content
 						SearchAccordion
 							template(#header) специализация <span v-if="CURRENT_DIRECTION.length > 0">{{ CURRENT_DIRECTION.length }}</span>
 							FilterDirection(:list="DIRECTION_LIST" :current="CURRENT_DIRECTION" @change="CURRENT_DIRECTION = $event")
@@ -331,31 +329,31 @@ Block.search
 							template(#header) город <span v-if="CURRENT_CITY.length > 0">{{ CURRENT_CITY.length }}</span>
 							FilterCity(:list="CITY_LIST" :current="CURRENT_CITY" @change="CURRENT_CITY = $event")
 						SearchAccordion
-							template(#header) 
-								| Тариф 
+							template(#header)
+								| Тариф
 								<span v-if="MIN_TARIFF_VALUE && MAX_TARIFF_VALUE">{{ MIN_TARIFF_VALUE }}{{ POSTFIX_TARIFF }} - {{ MAX_TARIFF_VALUE }}{{ POSTFIX_TARIFF }}</span>
 								<span v-else-if="MIN_TARIFF_VALUE">{{ MIN_TARIFF_VALUE }}{{ POSTFIX_TARIFF }}+</span>
 								<span v-else-if="MAX_TARIFF_VALUE">0{{ POSTFIX_TARIFF }} - {{ MAX_TARIFF_VALUE }}{{ POSTFIX_TARIFF }}</span>
 							FilterRange(
-								@update:min="MIN_TARIFF_VALUE = $event" 
-								@update:max="MAX_TARIFF_VALUE = $event" 
+								@update:min="MIN_TARIFF_VALUE = $event"
+								@update:max="MAX_TARIFF_VALUE = $event"
 								@update:postfix="POSTFIX_TARIFF = $event"
-								:min="MIN_TARIFF_VALUE" 
-								:max="MAX_TARIFF_VALUE" 
+								:min="MIN_TARIFF_VALUE"
+								:max="MAX_TARIFF_VALUE"
 								:postfix="POSTFIX_TARIFF"
 							)
 						SearchAccordion
-							template(#header) 
-								| Возраст 
+							template(#header)
+								| Возраст
 								<span v-if="MIN_AGE_VALUE && MAX_AGE_VALUE">{{ MIN_AGE_VALUE }}{{ POSTFIX_AGE }} - {{ MAX_AGE_VALUE }}{{ POSTFIX_AGE }}</span>
 								<span v-else-if="MIN_AGE_VALUE">{{ MIN_AGE_VALUE }}{{ POSTFIX_AGE }}+</span>
 								<span v-else-if="MAX_AGE_VALUE">0{{ POSTFIX_AGE }} - {{ MAX_AGE_VALUE }}{{ POSTFIX_AGE }}</span>
 							FilterRange(
-								@update:min="MIN_AGE_VALUE = $event" 
-								@update:max="MAX_AGE_VALUE = $event" 
+								@update:min="MIN_AGE_VALUE = $event"
+								@update:max="MAX_AGE_VALUE = $event"
 								@update:postfix="POSTFIX_AGE = $event"
-								:min="MIN_AGE_VALUE" 
-								:max="MAX_AGE_VALUE" 
+								:min="MIN_AGE_VALUE"
+								:max="MAX_AGE_VALUE"
 								:postfix="POSTFIX_AGE"
 
 								minPlaceholder="16"
@@ -369,19 +367,17 @@ Block.search
 		template(v-if="searchCategory === 'Статьи'")
 			.search-content-articles
 				.search-content__header
-					p.search-content-results.regular Результатов: <span class="medium">{{ PLACEHOLDER_ARTICLES.length }}</span>
+					p.search-content-results.bt Результатов: <span class="medium">{{ PLACEHOLDER_ARTICLES.length }}</span>
 					SingleDropdown(:list="['Новые','Сначала дешевле','Сначала дороже']" :value="SORT_ARTICLES" @update:modelValue="SORT_ARTICLES = $event")
 				.search-content-articles__row
 					Article(v-for="article in PLACEHOLDER_ARTICLES" :info="article")
 			.search-aside
 				.search-aside__wrapper
 					.search-aside__header
-						p.search-aside__title.small-uppercase-medium Избранные статьи
+						p.search-aside__title.subtitle Избранные статьи
 					FavoriteArticles(:list="PLACEHOLDER_ARTICLES" :count="3")
-
-Footer
 </template>
-	
+
 <style scoped lang="scss">
 .search {
 	padding: 40px 0px 60px;

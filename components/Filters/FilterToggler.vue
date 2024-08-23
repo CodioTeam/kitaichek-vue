@@ -7,15 +7,15 @@ defineProps({
 })
 defineEmits(['update:value'])
 </script>
-	
+
 <template lang="pug">
 label.filter
 	Checkbox(name="name", :value="value", @update:value="$emit('update:value', $event)")
 	.filter__line
-	p.filter__text.regular
+	p.filter__text.bt
 		slot
 </template>
-	
+
 <style scoped lang="scss">
 .filter {
 	display: flex;

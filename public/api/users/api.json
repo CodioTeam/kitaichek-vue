@@ -1,0 +1,32 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "id": "user1",
+    "createdAt": "2023-08-01T10:00:00Z",
+    "rate": 4.8,
+    "reviews": ["review1", "review2"],
+    "age": 30,
+    "specialization": ["Plumbing", "Electrical"],
+    "description": "Experienced handyman with over 10 years of experience.",
+    "city": "New York",
+    "responses": ["order1"],
+    "orders": ["order2"],
+    "headerImage": "https://example.com/images/user1.jpg"
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "id": "user2",
+    "createdAt": "2023-07-15T14:30:00Z",
+    "rate": 4.9,
+    "reviews": ["review3"],
+    "age": 28,
+    "specialization": ["Gardening", "Landscaping"],
+    "description": "Professional gardener with a passion for creating beautiful landscapes.",
+    "city": "Los Angeles",
+    "responses": ["order3"],
+    "orders": ["order4"],
+    "headerImage": "https://example.com/images/user2.jpg"
+  }
+]

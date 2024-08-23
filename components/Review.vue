@@ -11,16 +11,16 @@ const { info } =  defineProps({
 const { hired, price, title, description, date, executor } = info
 
 </script>
-	
+
 <template lang="pug">
 .review-card.card
 	.review-card__header
-		p.review-card__date.small {{ hired }}
-		p.review-card__price.h6 {{ price }}
-	a(href="#").h6.review-card__title {{ title }}
+		p.review-card__date.st {{ hired }}
+		p.review-card__price.h5 {{ price }}
+	a(href="#").h5.review-card__title {{ title }}
 	.review-card__review
-		p.review-card__description.medium {{ description }}
-		p.review-card__time.small {{ date }}
+		p.review-card__description.bt-medium {{ description }}
+		p.review-card__time.st {{ date }}
 	a(href="#").review-card__info
 		.review-card__avatar
 			img(src="assets/img/avatar-01.jpg", alt="")
@@ -28,14 +28,14 @@ const { hired, price, title, description, date, executor } = info
 			p.review-card__name {{ executor.name }}
 			p.review-card__completed {{ executor.jobs }}
 	.review-card__row
-		a(href="#").review-card__small-button 
+		a(href="#").review-card__small-button
 			StarIcon
 			| {{ executor.rate }}
-		a(href="#").review-card__small-button 
+		a(href="#").review-card__small-button
 			FeedbackIcon
 			| {{ executor.feedback }}
 </template>
-	
+
 <style scoped lang="scss">
 .review-card {
 	display: flex;
@@ -81,7 +81,7 @@ const { hired, price, title, description, date, executor } = info
 		padding: 2px 8px 2px 4px;
 		align-items: center;
 		gap: 8px;
-		border-radius: 4px;
+		border-radius: 16px;
 		background: var(--GREY-300, #272723);
 		transition: .3s ease;
 		color: var(--LIGHT-GREY, #F8F8F8);
@@ -110,7 +110,7 @@ const { hired, price, title, description, date, executor } = info
 	&__review {
 		display: flex;
 		padding: 12px;
-		border-radius: 4px;
+		border-radius: 16px;
 		background: var(--GREY-300, #272723);
 		flex-direction: column;
 		gap: 16px;
@@ -128,7 +128,7 @@ const { hired, price, title, description, date, executor } = info
 	}
 	&__col {
 		display: flex;
-		flex-direction: column;	
+		flex-direction: column;
 		gap: 8px;
 	}
 	&__row {

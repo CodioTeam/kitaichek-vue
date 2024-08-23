@@ -20,7 +20,6 @@ import { ref } from 'vue';
 import 'swiper/css';
 import "swiper/css/grid";
 
-
 const PLACEHOLDER_USER = {
 	name: "Иван Иванов",
 	city: "Москва",
@@ -156,26 +155,24 @@ const setSwiperThumb = (swiper) => {
 
 const searchInput = ref('')
 </script>
-	
-<template lang="pug">
-Header
 
+<template lang="pug">
 Block.section--light.intro
 	h1.h1.intro__title Начни свой Бизнес с Китаем <br class="desktop tablet"> с поиска <span>исполнителя</span>
 	.intro-search
 		input.intro-search__input(type="text" placeholder="Я ищу..." v-model="searchInput")
 		Button.intro-search__button(type="submit" large dark)
-			span 
+			span
 				FindIcon
 			span Найти
 	.intro-examples
-		p.intro-examples__title.regular Например:
+		p.intro-examples__title.bt Например:
 		.intro-examples__row
-			button.intro-examples__item.small(@click="searchInput = 'Доставка грузов из Китая в СНГ'") Доставка грузов из Китая в СНГ
-			button.intro-examples__item.small(@click="searchInput = 'Переводчик с Китайского'") Переводчик с Китайского
+			button.intro-examples__item.st(@click="searchInput = 'Доставка грузов из Китая в СНГ'") Доставка грузов из Китая в СНГ
+			button.intro-examples__item.st(@click="searchInput = 'Переводчик с Китайского'") Переводчик с Китайского
 
 Block.categories
-	p.section__suptitle.medium Популярные направления
+	p.section__suptitle.bt-medium Популярные направления
 	h3.section__title.h3 Тысячи надежных исполнителей по каждому направлению
 	.categories__row
 		.categories__swiper-wrapper
@@ -214,7 +211,7 @@ Block.categories
 				SwiperSlide(v-for="category in PLACEHOLDER_CATEGORIES")
 					Category(:info="category")
 		.banner.categories__banner
-			h6.banner__title.banner__title--white.h6 Удаленные помощники
+			h5.banner__title.banner__title--white.h5 Удаленные помощники
 			Button(dark) Все специалисты
 	.pagination
 		.pagination__progress#paginationCategory
@@ -227,13 +224,13 @@ Block.categories
 				ChevronIcon
 
 Block.best
-	p.section__suptitle.medium Топ проверенных исполнителей
+	p.section__suptitle.bt-medium Топ проверенных исполнителей
 	h3.section__title.h3 Выберите лучшего среди лучших
 	.best__col
 		.best__row
 			//- .banner.best-banner
 			//- 	img(src="assets/img/illustration-02.svg", alt="")
-			//- 	h6.banner__title.h6 Простой поиск
+			//- 	h5.banner__title.h5 Простой поиск
 			//- 	button.button.button--dark Найти специалиста
 			Swiper.best-swiper(
 				:slidesPerView="1"
@@ -280,12 +277,12 @@ Block.best
 					ChevronIcon
 
 Block.requests
-	p.section__suptitle.medium Популярные запросы
+	p.section__suptitle.bt-medium Популярные запросы
 	h3.section__title.h3 Начните бизнес с надежного сотрудничества
 	.requests__row
 		.banner.requests__banner
 			img(src="assets/img/illustration-03.svg", alt="")
-			h6.banner__title.h6 Найдите специалиста всего за 15 минут
+			h5.banner__title.h5 Найдите специалиста всего за 15 минут
 			Button(dark) Разместить заказ
 		.requests__col
 			Request(:info="PLACEHOLDER_REQUEST")
@@ -295,7 +292,7 @@ Block.requests
 			Button(dark).requests__button Все объявления
 
 Block.reviews
-	p.section__suptitle.medium Отзывы об исполнителях
+	p.section__suptitle.bt-medium Отзывы об исполнителях
 	h3.section__title.h3 Тысячи выполненных заказов
 	Swiper.reviews-swiper(
 		:slidesPerView="1"
@@ -335,7 +332,7 @@ Block.reviews
 			Review(:info="PLACEHOLDER_REVIEW")
 		SwiperSlide
 			Review(:info="PLACEHOLDER_REVIEW")
-					
+
 	.pagination
 		.pagination__progress#paginationReviews
 			.pagination__progress-bar
@@ -350,21 +347,21 @@ Block.how
 	.how__row
 		.how-block
 			h3.section__title.h3 Как работает сайт?
-			p.section__suptitle.medium Работайте с крупнейшей сетью независимых профессионалов в сфере бизнеса с Китаем — тысячи специалистов по шести направлениям для достижения вашей цели
+			p.section__suptitle.bt-medium Работайте с крупнейшей сетью независимых профессионалов в сфере бизнеса с Китаем — тысячи специалистов по шести направлениям для достижения вашей цели
 			Button(dark) Разместить заказ
 			.how-block__row
-				p.how-block__text.medium
+				p.how-block__text.bt-medium
 					NewsIcon
 					| Опишите свою задачу и условия. Это бесплатно и займёт пару минут
-				p.how-block__text.medium
+				p.how-block__text.bt-medium
 					PeopleIcon
 					| Получите отклики от исполнителей. Обычно они приходят в течение 30 минут
-				p.how-block__text.medium
+				p.how-block__text.bt-medium
 					HandsIcon
 					| Выберите подходящего исполнителя и обсудите сроки выполнения
 		.banner.how__banner
 			img(src="assets/img/illustration-04.svg", alt="")
-			h6.banner__title.h6 КИТАЙЧЕК.Partners — эффективный поиск удаленного помощника
+			h5.banner__title.h5 КИТАЙЧЕК.Partners — эффективный поиск удаленного помощника
 
 Block.news
 	.news-block
@@ -373,7 +370,7 @@ Block.news
 				img.news-block__bg-img(src="assets/img/news-01.jpg", alt="" v-if="currentNewsSlide === 0")
 				img.news-block__bg-img(src="assets/img/news-02.jpg", alt="" v-else-if="currentNewsSlide === 1")
 				img.news-block__bg-img(src="assets/img/news-03.jpg", alt="" v-else-if="currentNewsSlide === 2")
-		p.section__suptitle.medium Актуальные новости и полезные статьи
+		p.section__suptitle.bt-medium Актуальные новости и полезные статьи
 		h3.section__title.h3 Статьи
 		.news-block__row
 			Swiper.news-block__slides(
@@ -394,19 +391,19 @@ Block.news
 			)
 				SwiperSlide.news-item
 					h5.news-item__title.h5 Китайский экспорт вырос более чем на 7% за 2024 год
-					p.news-item__date.small 12.12.2024
-					p.news-item__description.medium Разнообразный и богатый опыт реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации новых предложений. Идейные соображения высшего порядка, а также начало повседневной работы по формированию позиции требуют от нас анализа новых предложений. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения форм развития.
-					Button(href="#" accent) Читать полностью
+					p.news-item__date.st 12.12.2024
+					p.news-item__description.bt-medium Разнообразный и богатый опыт реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации новых предложений. Идейные соображения высшего порядка, а также начало повседневной работы по формированию позиции требуют от нас анализа новых предложений. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения форм развития.
+					Button(href="#" yellow) Читать полностью
 				SwiperSlide.news-item
 					h5.news-item__title.h5 Китайский экспорт вырос более чем на 7% за 2024 год
-					p.news-item__date.small 12.12.2024
-					p.news-item__description.medium Разнообразный и богатый опыт реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации новых предложений. Идейные соображения высшего порядка, а также начало повседневной работы по формированию позиции требуют от нас анализа новых предложений. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения форм развития.
-					Button(href="#" accent) Читать полностью
+					p.news-item__date.st 12.12.2024
+					p.news-item__description.bt-medium Разнообразный и богатый опыт реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации новых предложений. Идейные соображения высшего порядка, а также начало повседневной работы по формированию позиции требуют от нас анализа новых предложений. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения форм развития.
+					Button(href="#" yellow) Читать полностью
 				SwiperSlide.news-item
 					h5.news-item__title.h5 Китайский экспорт вырос более чем на 7% за 2024 год
-					p.news-item__date.small 12.12.2024
-					p.news-item__description.medium Разнообразный и богатый опыт реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации новых предложений. Идейные соображения высшего порядка, а также начало повседневной работы по формированию позиции требуют от нас анализа новых предложений. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения форм развития.
-					Button(href="#" accent) Читать полностью
+					p.news-item__date.st 12.12.2024
+					p.news-item__description.bt-medium Разнообразный и богатый опыт реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации новых предложений. Идейные соображения высшего порядка, а также начало повседневной работы по формированию позиции требуют от нас анализа новых предложений. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения форм развития.
+					Button(href="#" yellow) Читать полностью
 			Swiper.news-block__swiper(
 				:spaceBetween="24"
 				:slidesPerView="2"
@@ -447,10 +444,8 @@ Block.news
 					ChevronIcon
 				.pagination__button#nextPaginationNews
 					ChevronIcon
-
-Footer
 </template>
-	
+
 <style scoped lang="scss">
 // INTRO
 .intro {
@@ -459,7 +454,7 @@ Footer
 		color: var(--DARK);
 		span {
 			color: #929292;
-		} 
+		}
 	}
 	@include r(768px) {
 		padding-top: 160px;
@@ -565,7 +560,7 @@ Footer
 		background: url("@/assets/img/categories-banner.jpg") no-repeat;
 	}
 	&__swiper-wrapper {
-		display: flex;	
+		display: flex;
 		width: calc(75% - 6px);
 	}
 	@include r(768px) {
@@ -709,7 +704,7 @@ Footer
 }
 .how-block {
 	width: 100%;
-	border-radius: 4px;
+	border-radius: 16px;
 	background: var(--ACCENT, #FF0);
 	padding: 24px;
 	display: flex;
@@ -788,7 +783,7 @@ Footer
 		left: 0;
 		width: 100%;
 		height: 100%;
-		border-radius: 4px;
+		border-radius: 16px;
 		opacity: 0.2;
 		pointer-events: none;
 		&::before {
@@ -799,7 +794,7 @@ Footer
 			z-index: 2;
 			width: 100%;
 			height: 100%;
-			border-radius: 4px;
+			border-radius: 16px;
 			background: rgba(18, 18, 15, 0.10);
 			backdrop-filter: blur(8px);
 		}
@@ -820,7 +815,7 @@ Footer
 		max-width: 640px;
 		:deep(.swiper-wrapper) {
 			height: 274px;
-		} 
+		}
 	}
 	&__row {
 		display: flex;
@@ -832,7 +827,7 @@ Footer
 		max-height: 200px;
 		width: 100%;
 		height: 100%;
-		border-radius: 4px;
+		border-radius: 16px;
 		overflow: hidden;
 		position: relative;
 		img {
@@ -864,7 +859,7 @@ Footer
 			max-width: 100%;
 			:deep(.swiper-wrapper) {
 				height: 255px;
-			} 
+			}
 		}
 	}
 }
@@ -887,7 +882,7 @@ Footer
 		margin-top: 32px;
 	}
 	&__date {
-		border-radius: 4px;
+		border-radius: 16px;
 		padding: 2px 4px;
 		margin-top: 12px;
 		background: var(--GREY-400, #1C1C19);
@@ -936,11 +931,11 @@ Footer
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+	opacity: 0;
 }
 </style>

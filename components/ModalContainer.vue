@@ -1,10 +1,9 @@
 <script setup>
-	
+
 const props = defineProps({
-	open: {
-		type: Boolean,
-		default: false
-	}
+	open: Boolean,
+	blur: Boolean,
+	centered: Boolean
 })
 
 defineEmits(['close'])
@@ -17,13 +16,13 @@ onUpdated(() => {
 	}
 })
 </script>
-	
+
 <template lang="pug">
 teleport(to="body")
-	.modal-container( :class="{ 'active': open }" @click.self="$emit('close')")
+	.modal-container( :class="{ 'active': open, 'blur': blur, 'centered': centered }" @click.self="$emit('close')")
 		slot
 </template>
-	
+
 <style scoped lang="scss">
 .modal-container {
 	position: fixed;
@@ -41,6 +40,15 @@ teleport(to="body")
 	&.active {
 		pointer-events: all;
 		opacity: 1;
+		&.blur {
+			background: rgba(18, 18, 15, 0.40);
+			backdrop-filter: blur(16px);
+		}
+	}
+	&.centered {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	@include r(768px) {
 		padding: 64px 16px 16px;

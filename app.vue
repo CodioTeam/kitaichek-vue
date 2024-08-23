@@ -1,12 +1,15 @@
 <script setup>
-  
+
 </script>
-  
+
 <template lang="pug">
 .global-wrapper#globalWrapper
-  NuxtPage
+  Header
+  NuxtLayout
+    NuxtPage
+  Footer
 </template>
-  
+
 <style scoped lang="scss">
-  
+
 </style>

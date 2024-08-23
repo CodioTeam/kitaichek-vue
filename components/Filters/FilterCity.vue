@@ -19,16 +19,16 @@ const selectHandle = (item) => {
 	props.current.includes(item) ? emits('change', [...props.current.filter(i => i !== item)]) : emits('change', [...props.current, item])
 }
 </script>
-	
+
 <template lang="pug">
 .filter
-	input.filter__input.regular(placeholder="Начните вводить название..." v-model="inputValue" :class="{ 'filter__input--filled': filterHandle(list).length }")
+	input.filter__input.bt(placeholder="Начните вводить название..." v-model="inputValue" :class="{ 'filter__input--filled': filterHandle(list).length }")
 	.filter__row(v-if="filterHandle(list).length")
-		Tag.filter__tag(v-for="item in filterHandle(list)" :key="item" isOutline :isAccent="props.current.includes(item)" @click="selectHandle(item)") 
+		Tag.filter__tag(v-for="item in filterHandle(list)" :key="item" isOutline :isAccent="props.current.includes(item)" @click="selectHandle(item)")
 			| {{ item }}
 			DeleteDropdownIcon(v-if="props.current.includes(item)" size="14").filter__tag-icon
 </template>
-	
+
 <style scoped lang="scss">
 .filter {
 	display: flex;

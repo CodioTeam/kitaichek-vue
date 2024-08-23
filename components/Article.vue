@@ -18,23 +18,23 @@ const images = Object.fromEntries(
   Object.entries(glob).map(([key, value]) => [filename(key), value.default])
 )
 </script>
-	
+
 <template lang="pug">
 a(href="#" :class="{ 'article--aside': isAside }" ).article.card
 	.article__header
 		Tag.article__tag(isAccent isSmall) {{ category }}
 		img.article__img(:src="images[img]", alt=title)
 	.article__body
-		h6.article__title {{ title }}
+		h5.article__title {{ title }}
 		.article__row
 			p.article__text
-				ClockIcon(size="20") 
+				ClockIcon(size="20")
 				span {{ readTime }}
-			p.article__text 
+			p.article__text
 				span {{ date }}
-		p.article__description.regular {{ description }}
+		p.article__description.bt {{ description }}
 </template>
-	
+
 <style scoped lang="scss">
 .article {
 	display: flex;
@@ -45,7 +45,7 @@ a(href="#" :class="{ 'article--aside': isAside }" ).article.card
 		overflow: hidden;
 		height: 198px;
 		width: 100%;
-		border-radius: 4px;
+		border-radius: 16px;
 	}
 	&__row {
 		display: flex;

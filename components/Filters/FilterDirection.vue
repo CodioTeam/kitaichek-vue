@@ -8,16 +8,16 @@ defineProps({
 
 defineEmits(['change'])
 </script>
-	
+
 <template lang="pug">
 .filter
-	p.filter__title.regular Выберите направления
+	p.filter__title.bt Выберите направления
 	.filter__row
-		Tag.filter__tag(v-for="item in list" :key="item" isOutline :isAccent="current.includes(item)" @click="current.includes(item) ? $emit('change', [...current.filter(i => i !== item)]) : $emit('change', [...current, item])") 
+		Tag.filter__tag(v-for="item in list" :key="item" isOutline :isAccent="current.includes(item)" @click="current.includes(item) ? $emit('change', [...current.filter(i => i !== item)]) : $emit('change', [...current, item])")
 			| {{ item }}
 			DeleteDropdownIcon(v-if="current.includes(item)" size="14").filter__tag-icon
 </template>
-	
+
 <style scoped lang="scss">
 .filter {
 	display: flex;

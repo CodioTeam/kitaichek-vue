@@ -9,16 +9,16 @@ const { info } = defineProps({
 const { href, icon, title, count, description } = info
 
 </script>
-	
+
 <template lang="pug">
 a(:href="href").card.category
 	.category__header
 		component(:is="icon")
-		h6.category__title.h6 {{ title }}
-		p.category__count.small {{ count }}
-	p.category__description.regular {{ description }}
+		h5.category__title.h5 {{ title }}
+		p.category__count.st {{ count }}
+	p.category__description.bt {{ description }}
 </template>
-	
+
 <style scoped lang="scss">
 
 .category {
@@ -30,7 +30,7 @@ a(:href="href").card.category
 	min-height: 220px;
 	&__count {
 		padding: 4px 8px;
-		border-radius: 4px;
+		border-radius: 16px;
 		border: 1px solid rgba(248, 248, 248, 0.40);
 		display: flex;
 		align-items: center;

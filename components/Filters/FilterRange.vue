@@ -16,28 +16,28 @@ const props = defineProps({
 })
 const emits = defineEmits(['update:min', 'update:max', 'update:postfix'])
 </script>
-	
+
 <template lang="pug">
 .filter
 	.filter__label-row(:class="{ 'filter__label-row--filled': (min || max) }")
 		.filter__label
-			p.filter__prefix.small От
-			input.filter__input.regular(:placeholder="minPlaceholder" type="number" :value="min" @input="$emit('update:min', $event.target.value)")
-			p.filter__postfix.regular {{ postfix }}
+			p.filter__prefix.st От
+			input.filter__input.bt(:placeholder="minPlaceholder" type="number" :value="min" @input="$emit('update:min', $event.target.value)")
+			p.filter__postfix.bt {{ postfix }}
 		.filter__line
 		.filter__label
-			p.filter__prefix.small До
-			input.filter__input.regular(:placeholder="maxPlaceholder" type="number" :value="max" @input="$emit('update:max', $event.target.value)")
-			p.filter__postfix.regular {{ postfix }}
+			p.filter__prefix.st До
+			input.filter__input.bt(:placeholder="maxPlaceholder" type="number" :value="max" @input="$emit('update:max', $event.target.value)")
+			p.filter__postfix.bt {{ postfix }}
 	.filter__row(v-if="min || max")
-		Tag.filter__tag(v-if="min" isAccent @click="$emit('update:min', null)") 
+		Tag.filter__tag(v-if="min" isAccent @click="$emit('update:min', null)")
 			| От {{ min }} {{ postfix }}
 			DeleteDropdownIcon(size="14").filter__tag-icon
-		Tag.filter__tag(v-if="max" isAccent @click="$emit('update:max', null)") 
+		Tag.filter__tag(v-if="max" isAccent @click="$emit('update:max', null)")
 			| До {{ max  }} {{ postfix }}
 			DeleteDropdownIcon(size="14").filter__tag-icon
 </template>
-	
+
 <style scoped lang="scss">
 .filter {
 	display: flex;
@@ -74,6 +74,7 @@ const emits = defineEmits(['update:min', 'update:max', 'update:postfix'])
 		display: flex;
 		align-items: center;
 		gap: 12px;
+		width: 100%;
 	}
 	&__row {
 		display: flex;

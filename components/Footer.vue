@@ -6,39 +6,39 @@ import WhatsappIcon from "~/components/icons/WhatsappIcon.vue"
 import LinkIcon from "~/components/icons/LinkIcon.vue"
 
 </script>
-	
+
 <template lang="pug">
 footer.footer
 	.container
 		nav.footer-nav
 			.footer-nav__col
-				p.footer-nav__title.h6 Направления
-				a(href="#").footer-nav__link.regular Байеры
-				a(href="#").footer-nav__link.regular Гиды
-				a(href="#").footer-nav__link.regular Переводчики
-				a(href="#").footer-nav__link.regular Экспедиторы
-				a(href="#").footer-nav__link.regular Посредники
-				a(href="#").footer-nav__link.regular Инспекторы
+				p.footer-nav__title.h5 Направления
+				a(href="#").footer-nav__link.bt Байеры
+				a(href="#").footer-nav__link.bt Гиды
+				a(href="#").footer-nav__link.bt Переводчики
+				a(href="#").footer-nav__link.bt Экспедиторы
+				a(href="#").footer-nav__link.bt Посредники
+				a(href="#").footer-nav__link.bt Инспекторы
 			.footer-nav__col
-				p.footer-nav__title.h6 Работа
-				a(href="#").footer-nav__link.regular Для Байеров
-				a(href="#").footer-nav__link.regular Для Гидов
-				a(href="#").footer-nav__link.regular Для Переводчиков
-				a(href="#").footer-nav__link.regular Для Экспедиторов
-				a(href="#").footer-nav__link.regular Для Посредников
-				a(href="#").footer-nav__link.regular Для Инспекторов
+				p.footer-nav__title.h5 Работа
+				a(href="#").footer-nav__link.bt Для Байеров
+				a(href="#").footer-nav__link.bt Для Гидов
+				a(href="#").footer-nav__link.bt Для Переводчиков
+				a(href="#").footer-nav__link.bt Для Экспедиторов
+				a(href="#").footer-nav__link.bt Для Посредников
+				a(href="#").footer-nav__link.bt Для Инспекторов
 			.footer-nav__col
-				p.footer-nav__title.h6 Статьи
-				a(href="#").footer-nav__link.regular Актуальное
-				a(href="#").footer-nav__link.regular Новости
-				a(href="#").footer-nav__link.regular Гайды
-				a(href="#").footer-nav__link.regular Полезное
+				p.footer-nav__title.h5 Статьи
+				a(href="#").footer-nav__link.bt Актуальное
+				a(href="#").footer-nav__link.bt Новости
+				a(href="#").footer-nav__link.bt Гайды
+				a(href="#").footer-nav__link.bt Полезное
 			.footer-nav__col
-				a(href="#").footer-nav__title.h6 
+				a(href="#").footer-nav__title.h5
 					| Q&A
 					LinkIcon
 		.footer-socials
-			p.footer-socials__title.h6 Следите за нами
+			p.footer-socials__title.h5 Следите за нами
 			.footer-socials__row
 				a(href="#").footer-socials__link
 					InstagramIcon
@@ -48,13 +48,13 @@ footer.footer
 					TelegramIcon
 				a(href="#").footer-socials__link
 					WhatsappIcon
-		.footer-bottom 
-			p.footer-bottom__text.medium © 2018 - 2024 КИТАЙЧЕК.Partners. <br> Все права защищены.
-			a(href="#").footer-bottom__link.medium Пользовательское соглашение
-			a(href="#").footer-bottom__link.medium Политика конфиденциальности
-			a(href="#").footer-bottom__link.medium Настройки куки
+		.footer-bottom
+			p.footer-bottom__text.bt-medium © 2018 - 2024 КИТАЙЧЕК.Partners. <br> Все права защищены.
+			a(href="#").footer-bottom__link.bt-medium Пользовательское соглашение
+			a(href="#").footer-bottom__link.bt-medium Политика конфиденциальности
+			a(href="#").footer-bottom__link.bt-medium Настройки куки
 </template>
-	
+
 <style scoped lang="scss">
 // FOOTER
 .footer {
@@ -136,7 +136,7 @@ footer.footer
 		display: flex;
 		align-items: center;
 		padding: 8px;
-		border-radius: 4px;
+		border-radius: 12px;
 		background: var(--GREY-400, #1C1C19);
 		transition: .3s ease;
 		:deep(path) {

@@ -36,7 +36,7 @@ const img = Object.fromEntries(
   Object.entries(glob).map(([key, value]) => [filename(key), value.default])
 )
 </script>
-	
+
 <template lang="pug">
 .review
 	img.review__avatar(src="assets/img/avatar-01.jpg", alt="Avatar")
@@ -45,29 +45,29 @@ const img = Object.fromEntries(
 			img.review__avatar(src="assets/img/avatar-01.jpg", alt="Avatar")
 			.review-info
 				.review-info__row
-					p.review-info__name.h6 {{ isAnswer ? 'Ответ исполнителя' : name }} 
-					p.review-info__id.medium(v-if="!isAnswer") {{ id }}
-				p.review-info__count.small(v-if="!isAnswer") {{ count }} заказа
-			button.review-info__add-answer.medium(v-if="typeVisitor === 'executor' && !isAnswer && answer === undefined" @click="canSendAnswer = !canSendAnswer") {{ canSendAnswer ? 'Отмена' : 'Ответить' }}
+					p.review-info__name.h5 {{ isAnswer ? 'Ответ исполнителя' : name }}
+					p.review-info__id.bt-medium(v-if="!isAnswer") {{ id }}
+				p.review-info__count.st(v-if="!isAnswer") {{ count }} заказа
+			button.review-info__add-answer.bt-medium(v-if="typeVisitor === 'executor' && !isAnswer && answer === undefined" @click="canSendAnswer = !canSendAnswer") {{ canSendAnswer ? 'Отмена' : 'Ответить' }}
 		.review-rate(v-if="!isAnswer")
 			.review-rate__stars
 				template(v-for="i in 5" v-if="!isAnswer")
 					StarFillIcon(size="16" v-if="i <= rate")
 					StarIcon(size="16" v-else)
-			p.review-rate__number.bold {{ rate }}
+			p.review-rate__number.bt-bold {{ rate }}
 			hr
-			p.review-rate__date.small {{date}}
+			p.review-rate__date.st {{date}}
 		.review-frame(:class="{'review-frame--answer': isAnswer}")
-			p.review-frame__text.regular(:class="{ 'review-frame__text--more': more }") {{ text }}
-			p.review-frame__more.regular(@click="more = !more") {{ more ? 'Скрыть' : 'Показать больше' }}
+			p.review-frame__text.bt(:class="{ 'review-frame__text--more': more }") {{ text }}
+			p.review-frame__more.bt(@click="more = !more") {{ more ? 'Скрыть' : 'Показать больше' }}
 			.review-frame__images
-				template(v-for="i in images")
-					img.review-frame__img(:src="img[i]", alt="Review image" @click="zoomImage = !zoomImage; zoomedImage = 0")
+				template(v-for="i, j in images")
+					img.review-frame__img(:src="img[i]", alt="Review image" @click="zoomImage = !zoomImage; zoomedImage = j")
 			p.review-frame__complete(v-if="!isAnswer")
-				span.small {{ status }}
-				span.medium-small {{ review_title }}
+				span {{ status }}
+				span.bt-medium {{ review_title }}
 		UserReview(v-if="answer" :info="answer" :isAnswer="true")
-		
+
 		form.review-answer(v-if="canSendAnswer")
 			label.review-answer-images
 				input.review-answer-images__input(type="file" multiple accept="image/*" @input="handleSelectedImage($event)")
@@ -77,14 +77,14 @@ const img = Object.fromEntries(
 				span.review-answer-images__label
 					AddIcon(size="24")
 			.review-answer__row(:class="{ 'active': message.length > 0 }")
-				input.medium.review-answer__input(type="text" placeholder="Текст ответа" v-model="message")
-				Button(accent).review-answer__button
+				input.bt-medium.review-answer__input(type="text" placeholder="Текст ответа" v-model="message")
+				Button(yellow).review-answer__button
 					EnterIcon
 					span Enter
-ImagesZoom(:images="images" :open="zoomImage" :zoomedImage="zoomedImage" @close="zoomImage = false; zoomedImage = 0")
-	
+ImagesZoom(:images="images" :open="zoomImage" :zoomedImage="zoomedImage" @update:zoomedImage="zoomedImage = $event" @close="zoomImage = false; zoomedImage = 0")
+
 </template>
-	
+
 <style scoped lang="scss">
 .review-answer {
 	display: flex;
@@ -169,7 +169,7 @@ ImagesZoom(:images="images" :open="zoomImage" :zoomedImage="zoomedImage" @close=
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 4px;
+		border-radius: 16px;
 		overflow: hidden;
 		position: relative;
 		width: 120px;
@@ -270,7 +270,7 @@ ImagesZoom(:images="images" :open="zoomImage" :zoomedImage="zoomedImage" @close=
 .review-frame {
 	display: flex;
 	flex-direction: column;
-	border-radius: 4px;
+	border-radius: 16px;
 	gap: 16px;
 	width: 100%;
 	&:not(&--answer) {
@@ -303,7 +303,7 @@ ImagesZoom(:images="images" :open="zoomImage" :zoomedImage="zoomedImage" @close=
 		display: block;
 		width: 120px;
 		height: 100px;
-		border-radius: 4px;
+		border-radius: 16px;
 		object-fit: cover;
 	}
 	&__complete {
@@ -311,7 +311,7 @@ ImagesZoom(:images="images" :open="zoomImage" :zoomedImage="zoomedImage" @close=
 		align-items: center;
 		gap: 8px;
 		width: 100%;
-		
+
 		span:first-child {
 			color: var(--ACCENT);
 			white-space: nowrap;

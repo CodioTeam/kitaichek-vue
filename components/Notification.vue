@@ -10,15 +10,15 @@ defineEmits(['read'])
 const { title, time, text } = info
 const isRead = ref(info.isRead)
 </script>
-	
+
 <template lang="pug">
 button.modal-notification-item(:class="{ 'modal-notification-item--new': !isRead }" @click="$emit('read'); isRead = true")
 	.modal-notification-item__header
-		p.modal-notification-item__title.h6 {{ title }}
-		p.modal-notification-item__date.small {{ time }}
-	p.modal-notification-item__text.medium {{ text }}
+		p.modal-notification-item__title.h5 {{ title }}
+		p.modal-notification-item__date.st {{ time }}
+	p.modal-notification-item__text.bt-medium {{ text }}
 </template>
-	
+
 <style scoped lang="scss">
 .modal-notification-item {
 	display: flex;

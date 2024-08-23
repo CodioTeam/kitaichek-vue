@@ -41,7 +41,7 @@ button, a {
 span {
 	font: inherit;
 	color: inherit;
-	
+
 }
 b {
 	font-family: inherit;
@@ -49,71 +49,106 @@ b {
 }
 
 h1, .h1 {
-	font-size: 70px;
-	font-weight: 600;
-	line-height: 100%;
-	letter-spacing: -2.1px;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -1.62px;
 	@include r(768px) {
-		font-size: 32px;
-		letter-spacing: -0.96px;
+    font-size: 32px;
+    letter-spacing: -0.96px;
 	}
 }
+h2, .h2 {
+  font-size: 41px;
+  font-weight: 600;
+  line-height: 120%;
+  @include r(768px) {
+    font-size: 24px;
+  }
+}
 h3, .h3 {
-	font-size: 41px;
+	font-size: 31px;
 	font-weight: 700;
 	line-height: 120%;
 	@include r(768px) {
-		font-size: 24px;
+		font-size: 18px;
 	}
 }
 h4, .h4 {
-	font-size: 31px;
-	font-weight: 500;
+	font-size: 24px;
+	font-weight: 600;
 	line-height: 120%;
+  @include r(768px) {
+    font-size: 16px;
+  }
 }
 h5, .h5 {
-	font-size: 24px;
-	font-weight: 700;
-	line-height: 160%;
-}
-h6, .h6 {
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 160%;
+  @include r(768px) {
+    font-size: 14px;
+  }
 }
 
-.regular {
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 160%;
+// Large Text
+.lt {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%;
 }
-.medium {
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 140%;
+// Body Text
+.bt {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  &-medium {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 150%;
+  }
+  &-bold {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 150%;
+  }
 }
-.small {
-	font-size: 12px;
-	font-weight: 400;
-	line-height: 160%;
+// Small Text
+.st {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 120%;
+  &-medium {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+  }
+  &-bold {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 120%;
+  }
 }
-.bold {
-	font-size: 14px;
-	font-weight: 700;
-	line-height: 140%; /* 19.6px */
+// Body Link
+.bl {
+  font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
+	text-decoration: underline;
 }
-.medium-small {
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 160%;
+// Subtitle
+.subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
 }
-.small-uppercase-medium {
-	font-size: 12px;
-	font-weight: 500;
-	line-height: 140%;
-	letter-spacing: 0.48px;
-	text-transform: uppercase;
+.green {
+	color: var(--GREEN) !important;
+}
+.white {
+	color: #fff;
 }
 .container {
 	max-width: 1448px;
@@ -125,11 +160,21 @@ h6, .h6 {
 	}
 }
 
+.op5 {
+	opacity: 0.5;
+}
+.divider {
+	background: var(--GREY-100);
+	width: 100%;
+	height: 1px;
+	border: 0;
+}
+
 // CARD
 .card {
 	padding: 16px;
-	border-radius: 4px;
-	border: 1px solid var(--BORDER-GREY, #252525);
+	border-radius: 16px;
+	// border: 1px solid var(--BORDER-GREY, #252525);
 	background: var(--GREY-400, #1C1C19);
 }
 
@@ -138,11 +183,12 @@ h6, .h6 {
 	display: flex;
 	flex-direction: column;
 	padding: 16px;
-	border-radius: 4px;
+	border-radius: 16px;
 	background: var(--ACCENT, #FF0);
 	&__title {
 		margin-top: auto;
 		margin-bottom: 16px;
+		text-align: center;
 		color: var(--DARK, #12120F) !important;
 		&--white {
 			color: var(--WHITE) !important;
@@ -309,6 +355,15 @@ path[fill="currentColor"] {
 	opacity: 0;
 	transform: translate(10%, 0);
 }
+// FADE-CENTER
+.fade-center-enter-active, .fade-center-leave-active {
+	transition: .3s ease-out;
+}
+.fade-center-enter-from, .fade-center-leave-to {
+	opacity: 0;
+	transform: scale(0.8);
+}
+
 
 // GLOBAL
 .global-wrapper, .main {

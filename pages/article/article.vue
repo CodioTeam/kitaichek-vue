@@ -97,17 +97,15 @@ const swiperSlideChangeTransitionEnd = (swiper) => {
 	swiper.paginationBest.classList.remove('pagination__progress--active')
 }
 </script>
-	
-<template lang="pug">
-Header
 
+<template lang="pug">
 Block.article-page
 	.article-page__header
 		Breadcrumbs.article-page__breadcrumbs
 			a(href="#") Главная
 			a(href="#") Статьи
 			a(href="#") Название статьи
-		a(href="#").article-page__back.medium
+		a(href="#").article-page__back.bt-medium
 			ChevronIcon
 			| К списку статей
 	.article-page__body
@@ -117,38 +115,38 @@ Block.article-page
 				.article-preview__body
 					Tag.article-preview__tag(isAccent isSmall) Название рубрики
 					.article-preview__row
-						p.article-preview__text.medium
-							ClockIcon(size="20") 
+						p.article-preview__text.bt-medium
+							ClockIcon(size="20")
 							span {{ readTime }}
-						p.article-preview__text.medium
+						p.article-preview__text.bt-medium
 							span Дата публикации — {{ date }}
 			h1.h1.article-content__title Китайский экспорт вырос более чем на 7% за 2024 год
-			.article-block 
+			.article-block
 				h5.h5.article-block__title Наверняка, вы тоже заметили, что в последнее время Dribbble и Behance заполонили интерфейсы, составленные из квадратных и прямоугольных карточек со скругленными углами. Этот стиль называется “bento”.
 				.article-block__texts
 					p.article-block__text Принимая во внимание показатели успешности, высококачественный прототип будущего проекта однозначно фиксирует необходимость вывода текущих активов. Сложно сказать, почему диаграммы связей обнародованы. Как уже неоднократно упомянуто, предприниматели в сети интернет призывают нас к новым свершениям, которые, в свою очередь, должны быть обнародованы.
 					p.article-block__text Как уже неоднократно упомянуто, предприниматели в сети интернет призывают нас к новым свершениям, которые, в свою очередь, должны быть обнародованы. Равным образом, существующая теория представляет собой интересный эксперимент проверки стандартных подходов. Как принято считать, независимые государства, превозмогая сложившуюся непростую экономическую ситуацию, функционально разнесены на независимые элементы.
-					p.article-block__text Противоположная точка зрения подразумевает, что ключевые особенности структуры проекта могут быть преданы социально-демократической анафеме. Наше дело не так однозначно, как может показаться: консультация с широким активом в значительной степени обусловливает важность глубокомысленных рассуждений.  
-			.article-block 
+					p.article-block__text Противоположная точка зрения подразумевает, что ключевые особенности структуры проекта могут быть преданы социально-демократической анафеме. Наше дело не так однозначно, как может показаться: консультация с широким активом в значительной степени обусловливает важность глубокомысленных рассуждений.
+			.article-block
 				.article-block-collage
 					.article-block-collage__grid.article-block-collage__grid--three
 						img(src="assets/img/collage-img-01.jpg", alt="").article-block-collage__img
 						img(src="assets/img/collage-img-02.jpg", alt="").article-block-collage__img
 						img(src="assets/img/collage-img-03.jpg", alt="").article-block-collage__img
 					p.article-block-collage__caption Apple использует Bento UI для продвижения своих продуктов (здесь iPhone 14)
-			.article-block 
+			.article-block
 				h4.h4.article-block__title Психологические причины
 				h5.h5.article-block__title a. Предвкушение вознаграждения
 				.article-block__texts
 					p.article-block__text Принимая во внимание показатели успешности, высококачественный прототип будущего проекта однозначно фиксирует необходимость вывода текущих активов. Сложно сказать, почему диаграммы связей обнародованы. Как уже неоднократно упомянуто, предприниматели в сети интернет призывают нас к новым свершениям, которые, в свою очередь, должны быть обнародованы.
 					p.article-block__text Как уже неоднократно упомянуто, предприниматели в сети интернет призывают нас к новым свершениям, которые, в свою очередь, должны быть обнародованы. Равным образом, существующая теория представляет собой интересный эксперимент проверки стандартных подходов. Как принято считать, независимые государства, превозмогая сложившуюся непростую экономическую ситуацию, функционально разнесены на независимые элементы.
-					p.article-block__text Противоположная точка зрения подразумевает, что ключевые особенности структуры проекта могут быть преданы социально-демократической анафеме. Наше дело не так однозначно, как может показаться: консультация с широким активом в значительной степени обусловливает важность глубокомысленных рассуждений.  
-			.article-block 
+					p.article-block__text Противоположная точка зрения подразумевает, что ключевые особенности структуры проекта могут быть преданы социально-демократической анафеме. Наше дело не так однозначно, как может показаться: консультация с широким активом в значительной степени обусловливает важность глубокомысленных рассуждений.
+			.article-block
 				.article-block-collage
 					.article-block-collage__grid.article-block-collage__grid--one
 						img(src="assets/img/collage-img-01.jpg", alt="").article-block-collage__img
 					p.article-block-collage__caption Apple использует Bento UI для продвижения своих продуктов (здесь iPhone 14)
-			.article-block 
+			.article-block
 				h4.h4.article-block__title Как начать проектировать в стиле Bento
 				.article-block__texts
 					p.article-block__text Бенто работает лучше всего, когда вы разбиваете содержимое на небольшие кусочки - котлету в один отдел, макарошки в другой. Как только вы это сделаете, приступить к работе будет проще:
@@ -158,7 +156,7 @@ Block.article-page
 						li.article-block__list-item <strong>Создайте иерархию для управления вниманием.</strong> Управлять вниманием можно при помощи размеров блоков, изображений и цвета.
 						li.article-block__list-item <strong>Не забудьте закруглить углы.</strong> Закругленные углы ячеек помогают отличить их друг от друга, и это ключевая составляющая эстетики Bento Box.
 						li.article-block__list-item <strong>Сгруппируйте связанный контент</strong> — расположите ячейки таким образом, чтобы связанный контент находился в непосредственной близости. Работает «Теория близости».
-			.article-block 
+			.article-block
 				.article-block-collage
 					.article-block-collage__grid.article-block-collage__grid--two
 						img(src="assets/img/collage-img-01.jpg", alt="").article-block-collage__img
@@ -167,7 +165,7 @@ Block.article-page
 		.article-aside
 			.article-aside__wrapper
 				.article-aside__header
-					p.article-aside__title.small-uppercase-medium Избранные статьи
+					p.article-aside__title.subtitle Избранные статьи
 				FavoriteArticles(:list="PLACEHOLDER_ARTICLES" :count="3")
 
 Block.other-article
@@ -209,10 +207,8 @@ Block.other-article
 				ChevronIcon
 			.pagination__button#nextPaginationOtherArticles
 				ChevronIcon
-
-Footer
 </template>
-	
+
 <style scoped lang="scss">
 .other-article {
 	padding-bottom: 80px;
@@ -232,7 +228,7 @@ Footer
 	position: relative;
 	max-height: 360px;
 	overflow: hidden;
-	border-radius: 4px;
+	border-radius: 16px;
 	&__img {
 		width: 100%;
 		height: 100%;
@@ -325,7 +321,7 @@ Footer
 		height: 100%;
 		object-fit: cover;
 		object-position: center;
-		border-radius: 4px;
+		border-radius: 16px;
 	}
 	&__caption {
 		color: #FFF;

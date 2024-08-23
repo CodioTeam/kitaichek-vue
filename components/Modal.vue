@@ -5,14 +5,15 @@ import { ref, useAttrs } from 'vue'
 
 defineProps({
 	noBorder: Boolean,
-	isForm: Boolean
+	isForm: Boolean,
+	centered: Boolean
 })
 
 const emits = defineEmits(['close'])
 </script>
-	
+
 <template lang="pug">
-.modal(:class="{ 'modal--form': isForm }")
+.modal(:class="{ 'modal--form': isForm, 'modal--centered': centered }")
 	.modal__wrapper
 		.modal__header(:class="{ 'modal__header--no-border': noBorder }")
 			slot(name="header")
@@ -26,7 +27,7 @@ const emits = defineEmits(['close'])
 		.modal__footer(v-if="$slots.footer")
 			slot(name="footer")
 </template>
-	
+
 <style scoped lang="scss">
 .modal {
 	margin-left: auto;
@@ -36,7 +37,7 @@ const emits = defineEmits(['close'])
 	width: 100%;
 	flex-direction: column;
 	background: white;
-	border-radius: 4px;
+	border-radius: 16px;
 	padding: 16px 24px;
 	// right: 0;
 	gap: 16px;
@@ -52,6 +53,13 @@ const emits = defineEmits(['close'])
 	// 	opacity: 1;
 	// 	position: relative;
 	// }
+	&--centered {
+		padding: 24px;
+		margin: auto;
+		max-width: 100%;
+		width: auto;
+		height: auto;
+	}
 	&--form &__content {
 		margin: auto;
 		display: flex;
@@ -131,7 +139,7 @@ const emits = defineEmits(['close'])
 		&::-webkit-scrollbar-thumb {
 			background: #333;
 			width: 5px;
-			border-radius: 4px;
+			border-radius: 16px;
 		}
 	}
 	@include r(768px) {

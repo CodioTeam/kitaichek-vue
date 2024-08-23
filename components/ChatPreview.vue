@@ -10,18 +10,18 @@ const isRead = ref(info.isRead)
 
 defineEmits(['openChat'])
 </script>
-	
+
 <template lang="pug">
 button.modal-messages-item(:class="{ 'modal-messages-item--new': !isRead }", @click="$emit('openChat'); isRead = true")
 	a(href="#").modal-messages-item__avatar
 	.modal-messages-item__info
-		p.modal-messages-item__title.bold {{ sender }}
-		p.modal-messages-item__date.regular {{ messages.at(-1)[1] }}
+		p.modal-messages-item__title.bt-bold {{ sender }}
+		p.modal-messages-item__date.bt {{ messages.at(-1)[1] }}
 </template>
-	
+
 <style scoped lang="scss">
 .modal-messages-item {
-	border-radius: 4px;
+	border-radius: 16px;
 	padding: 8px;
 	display: flex;
 	gap: 12px;
