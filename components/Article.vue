@@ -1,5 +1,4 @@
 <script setup>
-import ClockIcon from "~/components/icons/ClockIcon.vue"
 import { filename } from 'pathe/utils'
 
 const { info } =  defineProps({
@@ -28,7 +27,7 @@ a(href="#" :class="{ 'article--aside': isAside }" ).article.card
 		h5.article__title {{ title }}
 		.article__row
 			p.article__text
-				ClockIcon(size="20")
+				IconsClockIcon(size="20")
 				span {{ readTime }}
 			p.article__text
 				span {{ date }}

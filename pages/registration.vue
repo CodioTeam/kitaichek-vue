@@ -1,10 +1,4 @@
 <script setup>
-import ChevronIcon from "~/components/icons/ChevronIcon.vue"
-import ValidateCheckIcon from "~/components/icons/ValidateCheckIcon.vue"
-import ValidateCrossIcon from "~/components/icons/ValidateCrossIcon.vue"
-import ValidateDefaultIcon from "~/components/icons/ValidateDefaultIcon.vue"
-import DeleteDropdownIcon from "~/components/icons/DeleteDropdownIcon.vue"
-
 const PLACEHOLDER_DROPDOWN = ["Байер","Гид","Переводчик","Экспедитор","Посредник","Инспектор","Инспектор1","Инспектор2","Инспектор3",]
 
 const registrationSteps = ref({
@@ -48,7 +42,7 @@ section.registration
 		.registration-header(:class="{ hidden: registrationSteps.currentStep === 0}")
 			p.registration-header__steps(v-if="registrationSteps.currentStep > 0 && registrationSteps.currentStep <= registrationSteps.maxSteps && (registrationSteps.type === 'customer' || registrationSteps.type === 'freelancer')") Шаг {{ registrationSteps.currentStep }} из {{ registrationSteps.maxSteps }}
 			button.registration-header__back(@click="back()")
-				ChevronIcon
+				IconsChevronIcon
 
 		.registration-content
 			.registration-content__wrapper
@@ -57,12 +51,12 @@ section.registration
 						h5.registration-content__title.h5 Регистрация
 						.registration-card__wrapper
 							button.registration-card(@click="registrationSteps.maxSteps = 2; registrationSteps.currentStep = 1; registrationSteps.type = 'customer'")
-								ChevronIcon
+								IconsChevronIcon
 								p.registration-card__title.h5
 									span Я Заказчик, ищу исполнителя
 									span Продолжить как <span>Заказчик</span>
 							button.registration-card(@click="registrationSteps.maxSteps = 3; registrationSteps.currentStep = 1; registrationSteps.type = 'freelancer'")
-								ChevronIcon
+								IconsChevronIcon
 								p.registration-card__title.h5
 									span Я Фрилансер, ищу работу
 									span Продолжить как <span>Фрилансер</span>
@@ -80,24 +74,24 @@ section.registration
 								.registration-valid
 									p.registration-valid__title Создайте пароль, который:
 									p.registration-valid__item.st
-										ValidateCheckIcon
-										ValidateCrossIcon
-										ValidateDefaultIcon
+										IconsValidateCheckIcon
+										IconsValidateCrossIcon
+										IconsValidateDefaultIcon
 										| содержит не менее 8 симв.
 									p.registration-valid__item.st
-										ValidateCheckIcon
-										ValidateCrossIcon
-										ValidateDefaultIcon
+										IconsValidateCheckIcon
+										IconsValidateCrossIcon
+										IconsValidateDefaultIcon
 										| содержит как строчные (a–z), так и прописные буквы (A–Z)
 									p.registration-valid__item.st
-										ValidateCheckIcon
-										ValidateCrossIcon
-										ValidateDefaultIcon
+										IconsValidateCheckIcon
+										IconsValidateCrossIcon
+										IconsValidateDefaultIcon
 										| содержит по крайней мере одну цифру (0–9) или символ.
 									p.registration-valid__item.st
-										ValidateCheckIcon
-										ValidateCrossIcon
-										ValidateDefaultIcon
+										IconsValidateCheckIcon
+										IconsValidateCrossIcon
+										IconsValidateDefaultIcon
 										| не содержит ваш адрес электронной почты
 								Button(type="button" dark @click="next()").registration-content__button Продолжить
 								Button(type="button" white @click="back()").registration-content__button Назад

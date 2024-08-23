@@ -1,19 +1,13 @@
 <script setup>
-import Block from "~/components/block.vue"
-import FindIcon from "~/components/icons/FindIcon.vue"
-import CartIcon from "~/components/icons/CartIcon.vue"
-import LineIcon from "~/components/icons/LineIcon.vue"
-import LangIcon from "~/components/icons/LangIcon.vue"
-import WalkIcon from "~/components/icons/WalkIcon.vue"
-import HandsIcon from "~/components/icons/HandsIcon.vue"
-import GuardIcon from "~/components/icons/GuardIcon.vue"
-import ChevronIcon from "~/components/icons/ChevronIcon.vue"
-import NewsIcon from "~/components/icons/NewsIcon.vue"
-import PeopleIcon from "~/components/icons/PeopleIcon.vue"
-import ArrowDotsIcon from "~/components/icons/ArrowDotsIcon.vue"
-
 import { Navigation, Thumbs, EffectFade, Grid } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
+
+import CartIcon from '../components/Icons/CartIcon.vue';
+import LineIcon from '../components/Icons/LineIcon.vue';
+import LangIcon from '../components/Icons/LangIcon.vue';
+import WalkIcon from '../components/Icons/WalkIcon.vue';
+import HandsIcon from '../components/Icons/HandsIcon.vue';
+import GuardIcon from '../components/Icons/GuardIcon.vue';
 
 import { ref } from 'vue';
 
@@ -163,7 +157,7 @@ Block.section--light.intro
 		input.intro-search__input(type="text" placeholder="Я ищу..." v-model="searchInput")
 		Button.intro-search__button(type="submit" large dark)
 			span
-				FindIcon
+				IconsFindIcon
 			span Найти
 	.intro-examples
 		p.intro-examples__title.bt Например:
@@ -219,9 +213,9 @@ Block.categories
 			.pagination__progress-bar
 		.pagination__buttons
 			.pagination__button#prevPaginationCategory
-				ChevronIcon
+				IconsChevronIcon
 			.pagination__button#nextPaginationCategory
-				ChevronIcon
+				IconsChevronIcon
 
 Block.best
 	p.section__suptitle.bt-medium Топ проверенных исполнителей
@@ -272,9 +266,9 @@ Block.best
 				.pagination__progress-bar
 			.pagination__buttons
 				.pagination__button#prevPaginationBest
-					ChevronIcon
+					IconsChevronIcon
 				.pagination__button#nextPaginationBest
-					ChevronIcon
+					IconsChevronIcon
 
 Block.requests
 	p.section__suptitle.bt-medium Популярные запросы
@@ -339,9 +333,9 @@ Block.reviews
 			.pagination__progress-bar
 		.pagination__buttons
 			.pagination__button#prevPaginationReviews
-				ChevronIcon
+				IconsChevronIcon
 			.pagination__button#nextPaginationReviews
-				ChevronIcon
+				IconsChevronIcon
 
 Block.how
 	.how__row
@@ -351,13 +345,13 @@ Block.how
 			Button(dark) Разместить заказ
 			.how-block__row
 				p.how-block__text.bt-medium
-					NewsIcon
+					IconsNewsIcon
 					| Опишите свою задачу и условия. Это бесплатно и займёт пару минут
 				p.how-block__text.bt-medium
-					PeopleIcon
+					IconsPeopleIcon
 					| Получите отклики от исполнителей. Обычно они приходят в течение 30 минут
 				p.how-block__text.bt-medium
-					HandsIcon
+					IconsHandsIcon
 					| Выберите подходящего исполнителя и обсудите сроки выполнения
 		.banner.how__banner
 			img(src="assets/img/illustration-04.svg", alt="")
@@ -424,26 +418,26 @@ Block.news
 						img(src="assets/img/news-01.jpg", alt="")
 						.news-item__link
 							Button(outline)
-								ArrowDotsIcon
+								IconsArrowDotsIcon
 				SwiperSlide.news-block__preview
 						img(src="assets/img/news-02.jpg", alt="")
 						.news-item__link
 							Button(outline)
-								ArrowDotsIcon
+								IconsArrowDotsIcon
 				SwiperSlide.news-block__preview
 						img(src="assets/img/news-03.jpg", alt="")
 						.news-item__link
 							Button(outline)
-								ArrowDotsIcon
+								IconsArrowDotsIcon
 		.pagination
 			.pagination__progress#paginationNews
 				.pagination__progress-bar
 				.pagination__progress-bar
 			.pagination__buttons
 				.pagination__button#prevPaginationNews
-					ChevronIcon
+					IconsChevronIcon
 				.pagination__button#nextPaginationNews
-					ChevronIcon
+					IconsChevronIcon
 </template>
 
 <style scoped lang="scss">

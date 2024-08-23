@@ -1,5 +1,4 @@
 <script setup>
-import OrderFinder from '~/components/OrderFinder.vue';
 let published = ref(false)
 
 const MIN_BUDGET_VALUE = ref(null)

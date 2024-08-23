@@ -1,6 +1,4 @@
 <script setup>
-import CloseIcon from "~/components/icons/CloseIcon.vue"
-import ChevronIcon from "~/components/icons/ChevronIcon.vue"
 import { ref, useAttrs } from 'vue'
 
 defineProps({
@@ -18,10 +16,10 @@ const emits = defineEmits(['close'])
 		.modal__header(:class="{ 'modal__header--no-border': noBorder }")
 			slot(name="header")
 			button.modal__back(@click="$emit('back')" v-if="$attrs.onBack")
-				ChevronIcon
+				IconsChevronIcon
 				| Назад
 			button.modal__close(@click="$emit('close')")
-				CloseIcon
+				IconsCloseIcon
 		.modal__content
 			slot(name="content")
 		.modal__footer(v-if="$slots.footer")

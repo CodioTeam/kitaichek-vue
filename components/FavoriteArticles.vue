@@ -1,8 +1,6 @@
 <script setup>
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import Article from '~/components/Article.vue';
-import ChevronIcon from './icons/ChevronIcon.vue';
 import 'swiper/css';
 
 defineProps({
@@ -35,7 +33,7 @@ const swiperSlideChangeTransitionEnd = (swiper) => {
 	swiper.paginationBest.classList.remove('pagination__progress--active')
 }
 </script>
-	
+
 <template lang="pug">
 .favorite-articles__wrapper
 	Swiper(
@@ -58,7 +56,7 @@ const swiperSlideChangeTransitionEnd = (swiper) => {
 		@slideChangeTransitionStart="(swiper) => swiperSlideChangeTransitionStart(swiper)"
 	).favorite-articles
 		template(v-for="i in count")
-			SwiperSlide 
+			SwiperSlide
 				Article(v-if="list[i]" :info="list[i]" isAside)
 	.pagination
 		.pagination__progress#paginationArticles
@@ -66,11 +64,11 @@ const swiperSlideChangeTransitionEnd = (swiper) => {
 			.pagination__progress-bar
 		.pagination__buttons
 			.pagination__button#prevPaginationArticles
-				ChevronIcon
+				IconsChevronIcon
 			.pagination__button#nextPaginationArticles
-				ChevronIcon
+				IconsChevronIcon
 </template>
-	
+
 <style scoped lang="scss">
 .favorite-articles {
 	display: flex;

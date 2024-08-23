@@ -1,10 +1,4 @@
 <script setup>
-import InstagramIcon from "~/components/icons/InstagramIcon.vue"
-import TelegramIcon from "~/components/icons/TelegramIcon.vue"
-import YouTubeIcon from "~/components/icons/YouTubeIcon.vue"
-import WhatsappIcon from "~/components/icons/WhatsappIcon.vue"
-import LinkIcon from "~/components/icons/LinkIcon.vue"
-
 </script>
 
 <template lang="pug">
@@ -36,18 +30,18 @@ footer.footer
 			.footer-nav__col
 				a(href="#").footer-nav__title.h5
 					| Q&A
-					LinkIcon
+					IconsLinkIcon
 		.footer-socials
 			p.footer-socials__title.h5 Следите за нами
 			.footer-socials__row
 				a(href="#").footer-socials__link
-					InstagramIcon
+					IconsInstagramIcon
 				a(href="#").footer-socials__link
-					YouTubeIcon
+					IconsYouTubeIcon
 				a(href="#").footer-socials__link
-					TelegramIcon
+					IconsTelegramIcon
 				a(href="#").footer-socials__link
-					WhatsappIcon
+					IconsWhatsappIcon
 		.footer-bottom
 			p.footer-bottom__text.bt-medium © 2018 - 2024 КИТАЙЧЕК.Partners. <br> Все права защищены.
 			a(href="#").footer-bottom__link.bt-medium Пользовательское соглашение

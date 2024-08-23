@@ -1,5 +1,4 @@
 <script setup>
-import Request from '~/components/Request.vue'
 
 definePageMeta({
   layout: "orders-layout",

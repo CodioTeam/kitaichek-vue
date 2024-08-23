@@ -1,6 +1,4 @@
 <script setup>
-import BlockUserIcon from "~/components/icons/BlockUserIcon.vue"
-import EnterIcon from "~/components/icons/EnterIcon.vue"
 
 const { info } =  defineProps({
 	info: {
@@ -31,7 +29,7 @@ onMounted(() => {
 				p.modal-chat-header__title.bt-bold {{ sender }}
 				p.modal-chat-header__city {{ city }}
 			button.modal-chat-header__button(@click="blockedWindow = !blockedWindow")
-				BlockUserIcon
+				IconsBlockUserIcon
 		.modal-chat-header__wrapper
 			.modal-chat-header__content
 				p.modal-chat-header__sure-title.bt-bold Вы хотите заблокировать пользователя
@@ -54,7 +52,7 @@ onMounted(() => {
 		label.modal-chat-label__label
 			textarea.modal-chat-label__textarea.bt-medium(placeholder="Сообщение" v-model="message")
 		Button(dark @click="$emit('newMessage', message); message = ''").modal-chat-label__button
-			EnterIcon
+			IconsEnterIcon
 			span Enter
 
 </template>

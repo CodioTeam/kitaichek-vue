@@ -1,5 +1,4 @@
 <script setup>
-import ChevronIcon from './icons/ChevronIcon.vue';
 
 defineProps({
 	alwaysOpen: { type: Boolean, default: false },
@@ -13,7 +12,7 @@ const open = ref(false)
 	.accordion__header(@click="open = !open")
 		p.accordion__title
 			slot(name="header")
-		ChevronIcon
+		IconsChevronIcon
 	.accordion__wrapper
 		.accordion__content
 			slot
