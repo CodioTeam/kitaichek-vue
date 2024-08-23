@@ -1,7 +1,4 @@
 <script setup>
-import LocationIcon from "~/components/icons/LocationIcon.vue"
-import ResponseIcon from "~/components/icons/ResponseIcon.vue"
-import CrossIcon from "./Icons/CrossIcon.vue";
 import Button from "./Button.vue";
 import UserSmall from "./UserSmall.vue";
 const { info, isEmployer, hasFeedback, sentFeedback } =  defineProps({
@@ -62,10 +59,10 @@ a(href="#").request
 			Tag(v-for="tag, i in tags" :isAccent="i === 0") {{ tag }}
 		.request__footer
 			p.request__address.bt-medium
-				LocationIcon
+				IconsLocationIcon
 				| {{ city }}
 			p.request__response.st
-				ResponseIcon(size="20")
+				IconsResponseIcon(size="20")
 				| {{ responses }} откликов
 		.request__additional(v-if="responseLeft || isWaiting || isPersonality || isRefused || isCompleted || atWork")
 			p.request__time.st(v-if="responseLeft") {{responseLeft}}

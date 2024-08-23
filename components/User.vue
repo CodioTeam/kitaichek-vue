@@ -1,9 +1,4 @@
 <script setup>
-import StarIcon from "~/components/icons/StarIcon.vue"
-import FeedbackIcon from "~/components/icons/FeedbackIcon.vue"
-import BookmarkIcon from "~/components/icons/BookmarkIcon.vue"
-import ForumIcon from "~/components/icons/ForumIcon.vue"
-
 const { info } =  defineProps({
 	info: {
 		type: Object,
@@ -24,16 +19,16 @@ const { name, city, rating, feedback, tags } = info
 				p.user-card__city {{ city }}
 		.user-card__row
 			a(href="#").user-card__small-button
-				StarIcon
+				IconsStarIcon
 				| {{ rating }}
 			a(href="#").user-card__small-button
-				FeedbackIcon
+				IconsFeedbackIcon
 				| {{ feedback }}
 			button.user-card__bookmark
-				BookmarkIcon
+				IconsBookmarkIcon
 		.user-card__control
 			Button(dark).user-card__button
-				ForumIcon
+				IconsForumIcon
 			Button(dark).user-card__button Предложить заказ
 	p.user-card__description.bt-medium
 		| В сфере дизайна более 9 лет. Свое дело люблю и работаю 24/7.

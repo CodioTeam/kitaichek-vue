@@ -1,6 +1,4 @@
 <script setup>
-import CloseIcon from './Icons/CloseIcon.vue';
-import ChevronIcon from './icons/ChevronIcon.vue';
 import { filename } from 'pathe/utils'
 
 import { Navigation } from 'swiper/modules';
@@ -59,7 +57,7 @@ const img = Object.fromEntries(
 		.zoom__header
 			p.zoom__count.subtitle {{zoomedImage + 1}} / {{ images.length }}
 			button.close__icon(@click="$emit('close')")
-				CloseIcon(size="32")
+				IconsCloseIcon(size="32")
 		Swiper.zoom-swiper(
 			:slidesPerView="1"
 			:spaceBetween="24"
@@ -83,9 +81,9 @@ const img = Object.fromEntries(
 				.pagination__progress-bar
 			.pagination__buttons
 				.pagination__button#prevZoomImage
-					ChevronIcon
+					IconsChevronIcon
 				.pagination__button#nextZoomImage
-					ChevronIcon
+					IconsChevronIcon
 </template>
 
 <style scoped lang="scss">

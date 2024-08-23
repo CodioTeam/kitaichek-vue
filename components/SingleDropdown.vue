@@ -1,5 +1,4 @@
 <script setup>
-import TriangleIcon from "~/components/icons/TriangleIcon.vue"
 
 const props = defineProps({
 	value: String,
@@ -36,7 +35,7 @@ const getCoordinates = () => {
 .dropdown(ref="dropdown" :class="{ open, 'dropdown--secondary': secondary}")
 	p.dropdown__value.subtitle(@click="open = !open; getCoordinates()")
 		| {{ value }}
-		TriangleIcon(size="16")
+		IconsTriangleIcon(size="16")
 
 	Teleport(to="body")
 		.dropdown-options__wrapper(@click.self="open = false" ref="dropdownOptions" :class="{ open }" :style="{ top: `${coordinates.top}px`, left: `${coordinates.left}px`, minWidth: `${coordinates.width}px` }")

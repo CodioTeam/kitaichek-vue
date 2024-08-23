@@ -1,9 +1,4 @@
 <script setup>
-import GroupsIcon from "~/components/icons/GroupsIcon.vue"
-import ChevronIcon from "~/components/icons/ChevronIcon.vue"
-import LinkIcon from "~/components/icons/FindIcon.vue"
-import ChatIcon from "~/components/icons/ChatIcon.vue"
-import NotificationIcon from "~/components/icons/NotificationIcon.vue"
 
 
 onMounted(() => {
@@ -189,18 +184,18 @@ header.header
 				nav.header-nav
 					button.header-nav__link.bt-medium(data-header="direction")
 						| Направления
-						ChevronIcon
+						IconsChevronIcon
 					button.header-nav__link.bt-medium(data-header="work")
 						| Работа
-						ChevronIcon
+						IconsChevronIcon
 					button.header-nav__link.bt-medium(data-header="news")
 						| Статьи
-						ChevronIcon
+						IconsChevronIcon
 					a(href="#").header-nav__link.bt-medium
 						| Q&A
 			.header-auth(v-if="!isAuth")
 				p.header-auth__users.bt-medium
-					GroupsIcon
+					IconsGroupsIcon
 					| 1 312 238
 				Button(outline dark @click="modalOpen = true; modalActive = 'login'") Присоединиться
 				Button(outline dark @click="modalOpen = true; modalActive = 'login'") Войти
@@ -208,9 +203,9 @@ header.header
 				p.header-auth__orders.bt-medium Мои заказы
 				.header-auth__controllers
 					button.header-auth__button(@click="modalOpen = true; modalActive = 'chat'" :class="{ 'active': PLACEHOLDER_CHAT.filter(n => !n.isRead).length > 0 }")
-						ChatIcon
+						IconsChatIcon
 					button.header-auth__button(@click="modalOpen = true; modalActive = 'notification'" :class="{ 'active': PLACEHOLDER_NOTIFICATION.filter(n => !n.isRead).length > 0 }")
-						NotificationIcon
+						IconsNotificationIcon
 				a(href="#").header-auth__avatar
 	.header-bottom__wrapper
 		.header-bottom.header-bottom--direction
@@ -220,31 +215,31 @@ header.header
 					a(href="#").header-bottom__link.st Перейти в каталог
 				.header-bottom__header.header-bottom__header--mobile
 					p.header-bottom__title.bt-medium Направления
-					ChevronIcon
+					IconsChevronIcon
 				.header-bottom__links-wrapper
 					.header-bottom__links
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Байеры
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Гиды
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Переводчики
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Экспедиторы
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Посредники
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Инспекторы
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 				.header-bottom__line
@@ -255,31 +250,31 @@ header.header
 					a(href="#").header-bottom__link.st Перейти в каталог
 				.header-bottom__header.header-bottom__header--mobile
 					p.header-bottom__title.bt-medium Работа
-					ChevronIcon
+					IconsChevronIcon
 				.header-bottom__links-wrapper
 					.header-bottom__links
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Для Байеров
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Для Гидов
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Для Переводчиков
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Для Экспедиторов
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Для Посредников
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Для Инспекторов
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 				.header-bottom__line
@@ -290,31 +285,31 @@ header.header
 					a(href="#").header-bottom__link.st Перейти в каталог
 				.header-bottom__header.header-bottom__header--mobile
 					p.header-bottom__title.bt-medium Статьи
-					ChevronIcon
+					IconsChevronIcon
 				.header-bottom__links-wrapper
 					.header-bottom__links
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Рубрика 1
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Рубрика 2
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Рубрика 3
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Рубрика 4
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Рубрика 5
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 						a(href="#").header-bottom-item
-							ChevronIcon
+							IconsChevronIcon
 							p.header-bottom-item__title.bt-medium Рубрика 6
 							p.header-bottom-item__text.st Удаленные помощники на китайском рынке товаров
 				.header-bottom__line
@@ -322,7 +317,7 @@ header.header
 			.container
 				a(href="#").header-bottom__header.header-bottom__header--mobile
 					p.header-bottom__title.bt-medium Q&A
-					LinkIcon
+					IconsLinkIcon
 
 ModalContainer(:open="modalOpen" @close="modalOpen = false; modalActive = null;")
 	transition(name="fade-right" mode="out-in")

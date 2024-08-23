@@ -1,6 +1,4 @@
 <script setup>
-import StarIcon from "~/components/icons/StarIcon.vue"
-import FeedbackIcon from "~/components/icons/FeedbackIcon.vue"
 
 const { info } =  defineProps({
 	info: {
@@ -29,10 +27,10 @@ const { hired, price, title, description, date, executor } = info
 			p.review-card__completed {{ executor.jobs }}
 	.review-card__row
 		a(href="#").review-card__small-button
-			StarIcon
+			IconsStarIcon
 			| {{ executor.rate }}
 		a(href="#").review-card__small-button
-			FeedbackIcon
+			IconsFeedbackIcon
 			| {{ executor.feedback }}
 </template>
 
