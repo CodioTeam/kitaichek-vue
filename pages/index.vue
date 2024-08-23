@@ -2,6 +2,13 @@
 import { Navigation, Thumbs, EffectFade, Grid } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
+import CartIcon from '../components/Icons/CartIcon.vue';
+import LineIcon from '../components/Icons/LineIcon.vue';
+import LangIcon from '../components/Icons/LangIcon.vue';
+import WalkIcon from '../components/Icons/WalkIcon.vue';
+import HandsIcon from '../components/Icons/HandsIcon.vue';
+import GuardIcon from '../components/Icons/GuardIcon.vue';
+
 import { ref } from 'vue';
 
 import 'swiper/css';
@@ -45,73 +52,73 @@ const PLACEHOLDER_CATEGORIES = [
 		title: "Байеры",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsCartIcon
+		icon: CartIcon
 	},
 	{
 		title: "Гиды",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsLineIcon
+		icon: LineIcon
 	},
 	{
 		title: "Переводчики",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsLangIcon
+		icon: LangIcon
 	},
 	{
 		title: "Экспедиторы",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsWalkIcon
+		icon: WalkIcon
 	},
 	{
 		title: "Посредники",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsHandsIcon
+		icon: HandsIcon
 	},
 	{
 		title: "Инспекторы",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsGuardIcon
+		icon: GuardIcon
 	},
 	{
 		title: "Байеры",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsCartIcon
+		icon: CartIcon
 	},
 	{
 		title: "Гиды",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsLineIcon
+		icon: LineIcon
 	},
 	{
 		title: "Переводчики",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsLangIcon
+		icon: LangIcon
 	},
 	{
 		title: "Экспедиторы",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsWalkIcon
+		icon: WalkIcon
 	},
 	{
 		title: "Посредники",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsHandsIcon
+		icon: HandsIcon
 	},
 	{
 		title: "Инспекторы",
 		count: 2831,
 		description: "Удаленные помощники на китайском рынке товаров",
-		icon: IconsGuardIcon
+		icon: GuardIcon
 	},
 ]
 
