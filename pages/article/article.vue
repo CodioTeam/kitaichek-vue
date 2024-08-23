@@ -1,8 +1,6 @@
 <script setup>
 import Breadcrumbs from '~/components/Breadcrumbs.vue';
-import ClockIcon from '~/components/icons/ClockIcon.vue';
 import FavoriteArticles from '~/components/FavoriteArticles.vue';
-import ChevronIcon from '~/components/icons/ChevronIcon.vue';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
@@ -106,7 +104,7 @@ Block.article-page
 			a(href="#") Статьи
 			a(href="#") Название статьи
 		a(href="#").article-page__back.bt-medium
-			ChevronIcon
+			IconsChevronIcon
 			| К списку статей
 	.article-page__body
 		.article-content
@@ -116,7 +114,7 @@ Block.article-page
 					Tag.article-preview__tag(isAccent isSmall) Название рубрики
 					.article-preview__row
 						p.article-preview__text.bt-medium
-							ClockIcon(size="20")
+							IconsClockIcon(size="20")
 							span {{ readTime }}
 						p.article-preview__text.bt-medium
 							span Дата публикации — {{ date }}
