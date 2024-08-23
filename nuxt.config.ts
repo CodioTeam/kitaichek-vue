@@ -3,6 +3,9 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   // ssr: true,
   css: ['@/assets/styles/_global.scss'],
+  app: {
+    baseURL: '/kitaichekVue/',
+  },
   dir: {
     layouts: 'layouts',
   },

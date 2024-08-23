@@ -15,9 +15,9 @@ const coordinates = ref({top: 0, left: 0})
 
 nextTick(() => {
 	getCoordinates()
-	window.addEventListener('resize', getCoordinates)
-	window.addEventListener('scroll', () => open.value = false)
-	window.addEventListener('click', (e) => {
+	window?.addEventListener('resize', getCoordinates)
+	window?.addEventListener('scroll', () => open.value = false)
+	window?.addEventListener('click', (e) => {
 		if (!dropdown.value?.contains(e.target) && !dropdownOptions.value?.contains(e.target)) {
 			open.value = false
 		}
@@ -25,9 +25,9 @@ nextTick(() => {
 })
 
 const getCoordinates = () => {
-	coordinates.value.left = dropdown.value.getBoundingClientRect().left + window.scrollX
-	coordinates.value.top = dropdown.value.getBoundingClientRect().top + window.scrollY
-	coordinates.value.width = dropdown.value.getBoundingClientRect().width
+	coordinates.value.left = dropdown.value?.getBoundingClientRect().left + window?.scrollX
+	coordinates.value.top = dropdown.value?.getBoundingClientRect().top + window?.scrollY
+	coordinates.value.width = dropdown.value?.getBoundingClientRect().width
 }
 </script>
 
