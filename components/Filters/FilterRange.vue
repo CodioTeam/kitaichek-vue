@@ -1,5 +1,4 @@
 <script setup>
-import DeleteDropdownIcon from '../icons/DeleteDropdownIcon.vue';
 
 const props = defineProps({
 	min: String,
@@ -32,10 +31,10 @@ const emits = defineEmits(['update:min', 'update:max', 'update:postfix'])
 	.filter__row(v-if="min || max")
 		Tag.filter__tag(v-if="min" isAccent @click="$emit('update:min', null)")
 			| От {{ min }} {{ postfix }}
-			DeleteDropdownIcon(size="14").filter__tag-icon
+			IconsDeleteDropdownIcon(size="14").filter__tag-icon
 		Tag.filter__tag(v-if="max" isAccent @click="$emit('update:max', null)")
 			| До {{ max  }} {{ postfix }}
-			DeleteDropdownIcon(size="14").filter__tag-icon
+			IconsDeleteDropdownIcon(size="14").filter__tag-icon
 </template>
 
 <style scoped lang="scss">

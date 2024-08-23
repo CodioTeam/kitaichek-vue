@@ -1,11 +1,4 @@
 <script setup>
-import FilterDirection from '~/components/Filters/FilterDirection.vue';
-import FilterCity from '~/components/Filters/FilterCity.vue';
-import FilterKeyword from '~/components/Filters/FilterKeyword.vue';
-import FilterRange from '~/components/Filters/FilterRange.vue';
-import FilterToggler from '~/components/Filters/FilterToggler.vue';
-import FilterIcon from '~/components/Icons/FilterIcon.vue';
-import ChevronIcon from '~/components/icons/ChevronIcon.vue';
 
 const searchCategory = ref('Заказы')
 
@@ -265,33 +258,33 @@ Block.search
 						SingleDropdown(:list="['Новые','Сначала дешевле','Сначала дороже']" :value="SORT_REQUESTS" @update:modelValue="SORT_REQUESTS = $event")
 					button.search-content__filters.subtitle(@click="FILTERS_REQUESTS = !FILTERS_REQUESTS")
 						| Фильтры
-						FilterIcon(size="17")
+						IconsFilterIcon(size="17")
 				.search-content-requests__column
 					Request(v-for="request in PLACEHOLDER_REQUESTS" :info="request")
 			.search-aside(:class="{ 'active': FILTERS_REQUESTS }")
 				.search-aside__wrapper
 					.search-aside__header
 						p.search-aside__title.subtitle(@click="FILTERS_REQUESTS = !FILTERS_REQUESTS")
-							ChevronIcon
+							IconsChevronIcon
 							| Фильтры
 						button.search-aside__button.st(@click="CURRENT_DIRECTION = []; CURRENT_CITY = []; CURRENT_KEYWORD = []; MIN_BUDGET_VALUE = 0; MAX_BUDGET_VALUE = 0") Сбросить
 					.search-aside__content
 						SearchAccordion
 							template(#header) специализация <span v-if="CURRENT_DIRECTION.length > 0">{{ CURRENT_DIRECTION.length }}</span>
-							FilterDirection(:list="DIRECTION_LIST" :current="CURRENT_DIRECTION" @change="CURRENT_DIRECTION = $event")
+							FiltersFilterDirection(:list="DIRECTION_LIST" :current="CURRENT_DIRECTION" @change="CURRENT_DIRECTION = $event")
 						SearchAccordion
 							template(#header) город <span v-if="CURRENT_CITY.length > 0">{{ CURRENT_CITY.length }}</span>
-							FilterCity(:list="CITY_LIST" :current="CURRENT_CITY" @change="CURRENT_CITY = $event")
+							FiltersFilterCity(:list="CITY_LIST" :current="CURRENT_CITY" @change="CURRENT_CITY = $event")
 						SearchAccordion
 							template(#header) Ключевые слова <span v-if="CURRENT_KEYWORD.length > 0">{{ CURRENT_KEYWORD.length }}</span>
-							FilterKeyword(:current="CURRENT_KEYWORD" @change="CURRENT_KEYWORD = $event")
+							FiltersFilterKeyword(:current="CURRENT_KEYWORD" @change="CURRENT_KEYWORD = $event")
 						SearchAccordion
 							template(#header)
 								| Бюджет
 								<span v-if="MIN_BUDGET_VALUE && MAX_BUDGET_VALUE">{{ MIN_BUDGET_VALUE }}{{POSTFIX_BUDGET}} - {{ MAX_BUDGET_VALUE }}{{POSTFIX_BUDGET}}</span>
 								<span v-else-if="MIN_BUDGET_VALUE">{{ MIN_BUDGET_VALUE }}{{POSTFIX_BUDGET}}+</span>
 								<span v-else-if="MAX_BUDGET_VALUE">0{{POSTFIX_BUDGET}} - {{ MAX_BUDGET_VALUE }}{{POSTFIX_BUDGET}}</span>
-							FilterRange(
+							FiltersFilterRange(
 								@update:min="MIN_BUDGET_VALUE = $event"
 								@update:max="MAX_BUDGET_VALUE = $event"
 								@update:postfix="POSTFIX_BUDGET = $event"
@@ -301,7 +294,7 @@ Block.search
 							)
 						SearchAccordion(alwaysOpen)
 							template(#header) Менее двух откликов
-							FilterToggler(:value="TOGGLER_RESPONSES_COUNT" @update:value="TOGGLER_RESPONSES_COUNT = $event") Показать заказы с 2-мя откликами <br> и меньше
+							FiltersFilterToggler(:value="TOGGLER_RESPONSES_COUNT" @update:value="TOGGLER_RESPONSES_COUNT = $event") Показать заказы с 2-мя откликами <br> и меньше
 
 		template(v-if="searchCategory === 'Исполнители'")
 			.search-content-executors
@@ -311,23 +304,23 @@ Block.search
 						SingleDropdown(:list="['Новые','Сначала дешевле','Сначала дороже']" :value="SORT_EXECUTORS" @update:modelValue="SORT_EXECUTORS = $event")
 					button.search-content__filters.subtitle(@click="FILTERS_EXECUTORS = !FILTERS_EXECUTORS")
 						| Фильтры
-						FilterIcon(size="17")
+						IconsFilterIcon(size="17")
 				.search-content-executors__row
 					User(v-for="executor in PLACEHOLDER_EXECUTORS" :info="executor")
 			.search-aside(:class="{ 'active': FILTERS_EXECUTORS }")
 				.search-aside__wrapper
 					.search-aside__header
 						p.search-aside__title.subtitle(@click="FILTERS_EXECUTORS = !FILTERS_EXECUTORS")
-							ChevronIcon
+							IconsChevronIcon
 							| Фильтры
 						button.search-aside__button.st Сбросить
 					.search-aside__content
 						SearchAccordion
 							template(#header) специализация <span v-if="CURRENT_DIRECTION.length > 0">{{ CURRENT_DIRECTION.length }}</span>
-							FilterDirection(:list="DIRECTION_LIST" :current="CURRENT_DIRECTION" @change="CURRENT_DIRECTION = $event")
+							FiltersFilterDirection(:list="DIRECTION_LIST" :current="CURRENT_DIRECTION" @change="CURRENT_DIRECTION = $event")
 						SearchAccordion
 							template(#header) город <span v-if="CURRENT_CITY.length > 0">{{ CURRENT_CITY.length }}</span>
-							FilterCity(:list="CITY_LIST" :current="CURRENT_CITY" @change="CURRENT_CITY = $event")
+							FiltersFilterCity(:list="CITY_LIST" :current="CURRENT_CITY" @change="CURRENT_CITY = $event")
 						SearchAccordion
 							template(#header)
 								| Тариф
@@ -348,7 +341,7 @@ Block.search
 								<span v-if="MIN_AGE_VALUE && MAX_AGE_VALUE">{{ MIN_AGE_VALUE }}{{ POSTFIX_AGE }} - {{ MAX_AGE_VALUE }}{{ POSTFIX_AGE }}</span>
 								<span v-else-if="MIN_AGE_VALUE">{{ MIN_AGE_VALUE }}{{ POSTFIX_AGE }}+</span>
 								<span v-else-if="MAX_AGE_VALUE">0{{ POSTFIX_AGE }} - {{ MAX_AGE_VALUE }}{{ POSTFIX_AGE }}</span>
-							FilterRange(
+							FiltersFilterRange(
 								@update:min="MIN_AGE_VALUE = $event"
 								@update:max="MAX_AGE_VALUE = $event"
 								@update:postfix="POSTFIX_AGE = $event"
@@ -361,8 +354,8 @@ Block.search
 							)
 						SearchAccordion(alwaysOpen)
 							template(#header) Отзывы
-							FilterToggler(:value="TOGGLER_WITH_RESPONSES" @update:value="TOGGLER_WITH_RESPONSES = $event") Показать исполнителей только <br> с отзывами
-							FilterToggler(v-if="TOGGLER_WITH_RESPONSES" :value="TOGGLER_WITH_GOOD_RESPONSES" @update:value="TOGGLER_WITH_GOOD_RESPONSES = $event") Показать исполнителей только <br> с положительными отзывами
+							FiltersFilterToggler(:value="TOGGLER_WITH_RESPONSES" @update:value="TOGGLER_WITH_RESPONSES = $event") Показать исполнителей только <br> с отзывами
+							FiltersFilterToggler(v-if="TOGGLER_WITH_RESPONSES" :value="TOGGLER_WITH_GOOD_RESPONSES" @update:value="TOGGLER_WITH_GOOD_RESPONSES = $event") Показать исполнителей только <br> с положительными отзывами
 
 		template(v-if="searchCategory === 'Статьи'")
 			.search-content-articles

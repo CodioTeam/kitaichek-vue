@@ -1,6 +1,4 @@
 <script setup>
-import Breadcrumbs from '~/components/Breadcrumbs.vue';
-import FavoriteArticles from '~/components/FavoriteArticles.vue';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 

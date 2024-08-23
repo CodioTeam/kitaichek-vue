@@ -1,7 +1,6 @@
 <script setup>
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import Article from '~/components/Article.vue';
 import 'swiper/css';
 
 defineProps({

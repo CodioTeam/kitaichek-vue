@@ -1,9 +1,4 @@
 <script setup>
-import UserReview from "~/components/UserReview.vue"
-import StarIcon from "~/components/icons/StarIcon.vue"
-import StarFillIcon from "./Icons/StarFillIcon.vue";
-import AddIcon from "./Icons/AddIcon.vue";
-import EnterIcon from "./Icons/EnterIcon.vue";
 import { filename } from 'pathe/utils'
 const props = defineProps({
 	isAnswer: false,
@@ -52,8 +47,8 @@ const img = Object.fromEntries(
 		.review-rate(v-if="!isAnswer")
 			.review-rate__stars
 				template(v-for="i in 5" v-if="!isAnswer")
-					StarFillIcon(size="16" v-if="i <= rate")
-					StarIcon(size="16" v-else)
+					IconsStarFillIcon(size="16" v-if="i <= rate")
+					IconsStarIcon(size="16" v-else)
 			p.review-rate__number.bt-bold {{ rate }}
 			hr
 			p.review-rate__date.st {{date}}
@@ -75,11 +70,11 @@ const img = Object.fromEntries(
 					span.review-answer-images__label
 						img.review-answer-images__img(:src="img")
 				span.review-answer-images__label
-					AddIcon(size="24")
+					IconsAddIcon(size="24")
 			.review-answer__row(:class="{ 'active': message.length > 0 }")
 				input.bt-medium.review-answer__input(type="text" placeholder="Текст ответа" v-model="message")
 				Button(yellow).review-answer__button
-					EnterIcon
+					IconsEnterIcon
 					span Enter
 ImagesZoom(:images="images" :open="zoomImage" :zoomedImage="zoomedImage" @update:zoomedImage="zoomedImage = $event" @close="zoomImage = false; zoomedImage = 0")
 

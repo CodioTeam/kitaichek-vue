@@ -1,5 +1,4 @@
 <script setup>
-import DeleteDropdownIcon from '../icons/DeleteDropdownIcon.vue';
 
 defineProps({
 	list: Array,
@@ -15,7 +14,7 @@ defineEmits(['change'])
 	.filter__row
 		Tag.filter__tag(v-for="item in list" :key="item" isOutline :isAccent="current.includes(item)" @click="current.includes(item) ? $emit('change', [...current.filter(i => i !== item)]) : $emit('change', [...current, item])")
 			| {{ item }}
-			DeleteDropdownIcon(v-if="current.includes(item)" size="14").filter__tag-icon
+			IconsDeleteDropdownIcon(v-if="current.includes(item)" size="14").filter__tag-icon
 </template>
 
 <style scoped lang="scss">

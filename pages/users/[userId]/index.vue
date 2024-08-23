@@ -1,10 +1,4 @@
 <script setup>
-import StarFillIcon from "~/components/icons/StarFillIcon.vue"
-import ChatFillIcon from "~/components/icons/ChatFillIcon.vue"
-import BookmarkIcon from "~/components/icons/BookmarkIcon.vue"
-import BookmarkFillIcon from "~/components/icons/BookmarkFillIcon.vue"
-import UserReview from "~/components/UserReview.vue"
-
 const {userId} = useRoute().params
 
 const SORT = ref('Новые')
@@ -83,18 +77,18 @@ Block.cabinet
 				p.user-info__time.bt {{ user.createdAt }}
 				.user-info-reviews
 					p.user-info-reviews__rate.bt-bold
-						StarFillIcon(size="16")
+						IconsStarFillIcon(size="16")
 						| 4.9
 					hr
 					p.user-info-reviews__count.bt 12 отзывов
 			.user-info__actions(v-if="typeVisitor === 'employer'")
 				Button(yellow).user-info__button Предложить заказ
 				Button(outline white).user-info__chat
-					ChatFillIcon
+					IconsChatFillIcon
 					| Чат
 				Button(small @click="bookmark = !bookmark").user-info__bookmark
-					BookmarkIcon(v-if="!bookmark")
-					BookmarkFillIcon(v-if="bookmark")
+					IconsBookmarkIcon(v-if="!bookmark")
+					IconsBookmarkFillIcon(v-if="bookmark")
 			.user-info__actions(v-else-if="typeVisitor === 'executor'")
 				Button(yellow).user-info__button Редактировать
 			.user-info__actions.user-info__actions--noAuth(v-else-if="typeVisitor === 'noneAuth'")
